@@ -59,9 +59,7 @@
 footer{
   font-family: 'Times New Roman', Times, serif;
 }
-footer .information{
-    background-color: black;
-}
+
 footer .section-content .col {
   padding: 10px 20px;
 }
