@@ -147,7 +147,7 @@
     <div>Content</div>
     <footer id="footer" class="footer-wrapper">
       <section class="section text-white">
-        <div class="bg-dark">
+        <div class="information">
           <div class="section-content">
             <div class="row row-collapse row-ful-width hide-for-medium">
               <div class="col text-left pl-1">
