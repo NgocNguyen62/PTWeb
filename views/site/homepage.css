@@ -10,13 +10,19 @@ body, .container, .full-width .ubermenu-nav, .container-width, .row {
 }
 
 .container {
-  padding-left: 15px;
-  padding-right: 15px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
 }
 
-.container-width, .full-width .ubermenu-nav, .container{
+.container-width, .full-width .ubermenu-nav, .container, .row {
   max-width: 1080px;
 }
+
+.section-title-container {
+  /* margin-bottom: 1.5em; */
+}
+
+/* @media (max-width: 549px) */
 h2 {
   color: #000000;
   font-weight: 700;
@@ -28,7 +34,7 @@ h2 {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 1000; /* Set a high z-index to ensure it's above other elements */
   background-color: #a7a6a6;
   color: white;
 }
@@ -46,7 +52,13 @@ h2 {
 #account span {
   font-weight: 500;
 }
-
+.divider{
+    border-left: 1px solid rgba(58, 55, 55, 0.1);
+    height: 30px;
+    vertical-align: middle;
+    position: relative;
+    /* margin: 0 7.5px; */
+}
 #navbarSupportedContent {
   text-align: center;
   background-color: #a5a3a3;
@@ -57,12 +69,12 @@ h2 {
 
 
 #navbarSupportedContent .nav-item{
-  margin: 5px 15px;
+  /* margin: 5px 15px; */
 }
 #navbarSupportedContent .dropdown-toggle{
   background-color:black;
   width: 100%;
-  padding: auto 5px;
+  /* padding: auto 5px; */
 }
 #navbarSupportedContent .nav-item .dropdown-menu .dropdown-item{
   border-bottom: 1px solid #aaa;
@@ -78,11 +90,15 @@ h2 {
   color: black;
 }
 
+.navbar {
+  padding: 0;
+}
+
 footer{
   font-family: 'Times New Roman', Times, serif;
 }
-footer .section .information {
-  background-color: #000000;
+footer .section .information{
+  background-color: black;
   color: white;
 }
 
@@ -99,6 +115,7 @@ footer .section-content .col {
   border-radius: 50%;
   cursor: pointer;
   transition: opacity .3s;
+  /* position: absolute; */
 }
 
 .flickity-page-dots .dot .active {
@@ -108,6 +125,7 @@ footer .section-content .col {
 
 .content {
   box-sizing: border-box;
+  padding-top: 0;
   /* margin-bottom: 40px; */
   display: flex;
   flex-direction: column;
@@ -185,8 +203,8 @@ footer .section-content .col {
 }
 
 .child {
-  flex: 1; 
-  margin-right: 20px; 
+  flex: 1; /* Mỗi cột chiếm đủ không gian còn lại trong container */
+  margin-right: 20px; /* Khoảng cách giữa các cột */
   width: 100%;
 }
 
