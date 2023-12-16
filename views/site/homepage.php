@@ -23,7 +23,7 @@
                 <div id="masthead" class="menu flex-row container-fluid row align-items-center logo-left medium-logo-center">
                     <!-- Logo -->
                     <div id="logo" class="col-3">
-                        <a href="#/" title="Trung Nguyên E-Coffee" rel="home">
+                        <a href="homepage.php" title="Trung Nguyên E-Coffee" rel="home">
                             <img width="200" height="100" alt="Trung Nguyên E-Coffee" src="https://trungnguyenecoffee.com/wp-content/uploads/2020/09/Logo-Màu-Trằng-E-Coffee.png" class="header_logo header-logo ls-is-cached lazyloaded" />
                         </a>
                     </div>
@@ -52,7 +52,7 @@
                     <div id="account" class="col-5">
                         <ul class="nav nav-right container-fluid d-flex align-items-center">
                             <li class="col-6">
-                                <a href="./register.php" title="" class="text-decoration-none text-dark">
+                                <a href="register.php" title="" class="text-decoration-none text-dark">
                                     <span>Đăng nhập / Đăng ký</span>
                                 </a>
                             </li>
@@ -154,13 +154,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../../web/assets//home//home1.jpg" class="d-block w-100" alt="...">
+                    <img src="https://trungnguyenecoffee.com/wp-content/uploads/2023/10/1366x540-1400x553.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../web/assets//home//home2.jpg" class="d-block w-100" alt="...">
+                    <img src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Bannner-T.chu_.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../web/assets//home//home3.jpg" class="d-block w-100" alt="...">
+                    <img src="https://trungnguyenecoffee.com/wp-content/uploads/2021/10/1360x540px.NQTNE_-1400x556.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -197,7 +197,7 @@
                     <strong>PHỤNG SỰ XÃ HỘI</strong> một cách <strong>THIẾT THỰC và BỀN VỮNG!</strong>
                 </p>
             </div>
-            <img src="../../web/assets/home/coop-bot.png" />
+            <img src="https://trungnguyenecoffee.com/wp-content/uploads/2020/08/coop-bot.png" />
             <div class="coffee">
                 <div class="line">
                 </div>
