@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'yiisoft/yii2-app-basic',
-        'pretty_version' => '2.0.49',
-        'version' => '2.0.49.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '46a185b71168da0a65b77d2f6119c6f443dd5c81',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -240,6 +240,15 @@
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'omnilight/yii2-shopping-cart' => array(
+            'pretty_version' => '1.3.0',
+            'version' => '1.3.0.0',
+            'reference' => 'afb9b29db3fc43871f4b57bfec34a9b2e8b73f8c',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../omnilight/yii2-shopping-cart',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'paragonie/random_compat' => array(
             'pretty_version' => 'v9.99.100',
@@ -767,9 +776,9 @@
             'dev_requirement' => false,
         ),
         'yiisoft/yii2-app-basic' => array(
-            'pretty_version' => '2.0.49',
-            'version' => '2.0.49.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '46a185b71168da0a65b77d2f6119c6f443dd5c81',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
