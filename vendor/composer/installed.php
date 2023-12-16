@@ -776,9 +776,9 @@
             'dev_requirement' => false,
         ),
         'yiisoft/yii2-app-basic' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '46a185b71168da0a65b77d2f6119c6f443dd5c81',
+            'pretty_version' => '2.0.49',
+            'version' => '2.0.49.0',
+            'reference' => NULL,
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
