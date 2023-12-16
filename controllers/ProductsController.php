@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\base\Products;
 use app\models\form\ProductForm;
 use app\models\search\ProductsSearch;
+use Yii;
 use yii\helpers\FileHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -132,7 +133,10 @@ class ProductsController extends Controller
                         FileHelper::removeDirectory($folder);
 //                        rename($folder, $folder2);
                     } else{
-                        if($avatar !== $model->avatar && file_exists($avatar)){
+//                        var_dump($avatar);
+//                        var_dump($product->avatar);
+//                        die();
+                        if($avatar !== $product->avatar && file_exists($avatar)){
                             unlink($avatar);
                         }
                     }
@@ -180,5 +184,15 @@ class ProductsController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    public function actionAddToCart($id){
+//        die();
+        $cart = Yii::$app->cart;
+        $model = Products::findOne($id);
+        if ($model) {
+            $cart->put($model, 1);
+            return $this->redirect(['cart-view']);
+        }
+        throw new NotFoundHttpException();
     }
 }

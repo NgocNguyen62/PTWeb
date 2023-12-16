@@ -2,13 +2,14 @@
 
 namespace app\controllers;
 
+use app\models\ContactForm;
+use app\models\form\LoginForm;
+use app\models\search\ProductsSearch;
 use Yii;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+//        $pagination = new Pagination([
+//            'defaultPageSize' => 12, // Số mục trên mỗi trang
+//            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
+//        ]);
+
+//        $dataProvider->pagination = $pagination;
+        return $this->render('index', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+
     }
 
     /**
@@ -77,6 +87,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            var_dump($model);
+//            die();
             return $this->goBack();
         }
 
@@ -125,4 +137,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
 }

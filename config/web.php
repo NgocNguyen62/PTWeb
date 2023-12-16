@@ -42,6 +42,10 @@ $config = [
             ],
         ],
         'db' => $db,
+        'cart' => [
+            'class' => 'yz\shoppingcart\ShoppingCart',
+            'cartId' => 'my_application_cart',
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

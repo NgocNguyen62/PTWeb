@@ -2,52 +2,60 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+/** @var app\models\search\ProductsSearch $searchModel */
+/** @var yii\data\ActiveDataProvider $dataProvider */
+
+use app\models\base\Categories;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+
+$products = $dataProvider->getModels();
 ?>
-<div class="site-index">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="jumbotron text-center bg-transparent mt-5 mb-5">
-        <h1 class="display-4">Congratulations!</h1>
+<head>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="https://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .row{
+            display: grid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
         <div class="row">
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
+            <?php foreach ($products as $product) {?>
+                    <div class="col-lg-3 col-sm-6">
+                        <a href="<?= Url::to(['products/view', 'id' => $product->id]) ?>">
+                            <div class="item">
+                                <img src="<?= $product->avatar ?>" alt="">
+                                <h4><?= $product->name ?>
+                                <br><span><?= Categories::findOne(['id' => $product->category_id])->name ?></span></h4>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                            </div>
+                        </a>
+                        <?php $form = ActiveForm::begin(['class'=>'form-horizontal', 'action'=>Url::toRoute(['products/add-to-cart','id'=>$product->id])]); ?>
 
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
+                        <?=Html::input('submit','submit','Add to cart',[
+                            'class'=>'button add',
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+                        ])?>
+                        <?php ActiveForm::end(); ?>
+<!--                        <button class="btn btn-primary cart-btn" type="button" onclick="addCart(--><?php //=$product->id ?>//)">Add to Cart</button>
+<!--                        --><?php //echo Html::a('Add to cart', ['products/addToCart', 'id' => $product->id]); ?>
+                    </div>
+            <?php }?>
         </div>
-
     </div>
-</div>
+    <script>
+        function addCart(id){
+            $.get('<?php echo Yii::$app->homeUrl.'products/add-to-cart' ?>', {'id': id}, function(data){
+                alert('Đã thêm vào giỏ hàng');
+            });
+        }
+    </script>
+</body>

@@ -67,7 +67,7 @@ class ProductForm extends Model {
                 }
 
                 if($this->avatar !== null && $this->avatar !== '') {
-                    $path_avatar = $folder . '/' . 'avatar-' . $this->avatar->baseName . time() . '.' . $this->avatar->extension;
+                    $path_avatar = $folder . '/' . 'avatar-' . $this->avatar->baseName . '.' . $this->avatar->extension;
                     $model->avatar = $path_avatar;
                     $this->avatar->saveAs($path_avatar);
                 }

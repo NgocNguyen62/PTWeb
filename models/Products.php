@@ -7,6 +7,8 @@ use Yii;
 use yii\db\Expression;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use yz\shoppingcart\CartPositionInterface;
+use yz\shoppingcart\CartPositionTrait;
 
 class Products extends \app\models\base\Products
 {
@@ -50,5 +52,6 @@ class Products extends \app\models\base\Products
     {
         return Products::find()->where(['category_id' => $cate])->andWhere(['<>', 'id', $this->id])->limit($limit)->all();
     }
+
 }
 
