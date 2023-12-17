@@ -26,15 +26,15 @@ $config = [
             ],
         ],
         'db' => $db,
-    ],
-    'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+//            'itemFile' => '@app/rbac/items.php',
+//            'assignmentFile' => '@app/rbac/assignments.php',
+//            'ruleFile' => '@app/rbac/rules.php',
         ],
     ],
-    */
+    'params' => $params,
+
 ];
 
 if (YII_ENV_DEV) {
