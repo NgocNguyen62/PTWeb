@@ -93,6 +93,10 @@ $config = [
                 'controllers' => ['user'],
                 'roles' => ['?', '@'],
             ],
+            [
+                'allow' => true,
+                'roles' => ['admin'],
+            ],
         ],
     ],
 ];

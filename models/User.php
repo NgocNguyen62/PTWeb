@@ -85,6 +85,9 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
     {
         return $this->id;
     }
+    public function getRole(){
+        return $this->role;
+    }
 
     /**
      * {@inheritdoc}
@@ -118,4 +121,13 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
         $profile = $this->userProfiles;
         return $profile->getId();
     }
+    public function getCart(){
+        $cart = \app\models\base\Cart::find()->where(['user_id'=>$this->id])->all();
+        $list = [];
+        foreach ($cart as $item){
+            $list[] = Products::findOne(['id'=>$item->product_id]);
+        }
+        return $list;
+    }
+
 }
