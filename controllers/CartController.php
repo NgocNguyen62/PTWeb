@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\base\Cart;
 use app\models\Products;
 use app\models\search\CartSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -96,6 +97,13 @@ class CartController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+    public function actionAdd($product_id, $quantity)
+    {
+        $user = Yii::$app->user;
+        $model = Cart::findOne(['user_id'=>$user->id, 'product_id'=>$product_id]);
+        $model->quantity += $quantity;
+        $model->save();
     }
 
     /**

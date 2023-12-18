@@ -39,7 +39,13 @@ $products = $dataProvider->getModels();
                             </div>
                         </a>
 
-                        <?php echo Html::a('Add to cart', ['cart/create', 'product_id' => $product->id, 'quantity'=>1]); ?>
+                        <?php
+                        if(!$product->inCart()){
+                            echo Html::a('Add to cart', ['cart/create', 'product_id' => $product->id, 'quantity'=>1]);
+                        } else{
+                            echo Html::a('Add to cart', ['cart/add', 'product_id' => $product->id, 'quantity'=>1]);
+                        }
+                        ?>
                     </div>
             <?php }?>
         </div>
