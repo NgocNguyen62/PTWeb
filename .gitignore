@@ -4,3 +4,4 @@ protected/runtime/*
 !protected/runtime/.gitignore
 protected/data/*.db
 themes/classic/views/
+web/products/6-test1/avatar-bg4.png
