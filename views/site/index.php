@@ -38,15 +38,14 @@ $products = $dataProvider->getModels();
 
                             </div>
                         </a>
-                        <?php $form = ActiveForm::begin(['class'=>'form-horizontal', 'action'=>Url::toRoute(['products/add-to-cart','id'=>$product->id])]); ?>
 
-                        <?=Html::input('submit','submit','Add to cart',[
-                            'class'=>'button add',
-
-                        ])?>
-                        <?php ActiveForm::end(); ?>
-<!--                        <button class="btn btn-primary cart-btn" type="button" onclick="addCart(--><?php //=$product->id ?>//)">Add to Cart</button>
-<!--                        --><?php //echo Html::a('Add to cart', ['products/addToCart', 'id' => $product->id]); ?>
+                        <?php
+                        if(!Yii::$app->user->isGuest && !$product->inCart()){
+                            echo Html::a('Add to cart', ['cart/create', 'product_id' => $product->id, 'quantity'=>1]);
+                        } else{
+                            echo Html::a('Add to cart', ['cart/add', 'product_id' => $product->id, 'quantity'=>1]);
+                        }
+                        ?>
                     </div>
             <?php }?>
         </div>

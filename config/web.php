@@ -46,6 +46,13 @@ $config = [
             'class' => 'yz\shoppingcart\ShoppingCart',
             'cartId' => 'my_application_cart',
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+            'defaultRoles' => ['admin', 'user'],
+//            'itemFile' => '@app/rbac/items.php',
+//            'assignmentFile' => '@app/rbac/assignments.php',
+//            'ruleFile' => '@app/rbac/UserGroupRule.php',
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -56,6 +63,42 @@ $config = [
         */
     ],
     'params' => $params,
+    'as globalAccess' => [
+        'class' => 'yii\filters\AccessControl',
+        'rules' => [
+            [
+                'actions' => ['error'],
+                'allow' => true,
+                'roles' => ["?","@"],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['site'],
+                'actions' => ['login', 'logout', 'home','categories','category-details'],
+                'roles' => ['?', '@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['site'],
+                'actions' => ['about', 'index'],
+                'roles' => ['?'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['products'],
+                'roles' => ['?', '@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['user'],
+                'roles' => ['?', '@'],
+            ],
+            [
+                'allow' => true,
+                'roles' => ['?', '@'],
+            ],
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
