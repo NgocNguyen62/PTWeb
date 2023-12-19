@@ -103,7 +103,9 @@ class CartController extends Controller
         $user = Yii::$app->user;
         $model = Cart::findOne(['user_id'=>$user->id, 'product_id'=>$product_id]);
         $model->quantity += $quantity;
-        $model->save();
+        if($model->save()){
+            return $this->redirect(Yii::$app->request->referrer);
+        }
     }
 
     /**
