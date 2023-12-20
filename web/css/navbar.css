@@ -83,4 +83,17 @@ h2 {
   margin: 0 10%;
 }
 
+.fixed {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  margin-bottom: 200px;
+  background-color: #ffffff;
+  z-index: 10000;
+}
+
+.div-padding {
+  padding-bottom: 140px;
+}
+
 

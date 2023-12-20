@@ -21,9 +21,7 @@ use yii\web\View;
 </head>
 
 <body>
-    <div class="header-navbar">
     <?php echo $this->render('navbar'); ?>
-    </div>
     <div class="content-container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators flickity-page-dots">

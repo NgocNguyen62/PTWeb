@@ -18,12 +18,12 @@ use yii\helpers\Html;
 </head>
 
 <body>
-    <header class="header has-sticky sticky-jump">
-        <div class="wrapper fixed-div">
+    <header class="header has-sticky sticky-jump fixed">
+        <div class="wrapper">
             <div id="masthead" class="menu flex-row container-fluid row align-items-center logo-left medium-logo-center">
                 <!-- Logo -->
                 <div id="logo" class="col-3">
-                    <a href="./homepage.php" title="Trung Nguyên E-Coffee" rel="home">
+                    <a href="<?php echo Url::to(['site/homepage']); ?>" title="Trung Nguyên E-Coffee" rel="home">
                         <img width="200" height="100" alt="Trung Nguyên E-Coffee" src="https://trungnguyenecoffee.com/wp-content/uploads/2020/09/Logo-Màu-Trằng-E-Coffee.png" class="header_logo header-logo ls-is-cached lazyloaded" />
                     </a>
                 </div>
@@ -50,25 +50,10 @@ use yii\helpers\Html;
                 </div>
                 <!-- Signin/Logup -->
                 <div id="account" class="col-5">
+                    
                     <ul class="nav nav-right container-fluid d-flex align-items-center">
-                        <li class="col-6">
-                            <a href="" class="text-decoration-none text-dark">
-                                <?= !Yii::$app->user->isGuest ? Html::a('đăng xuất', ['site/logout'], ['data-method' => 'post', 'class' => 'dropdown-item']) : Html::a('Đăng nhập / Đăng ký', ['site/login']) ?>
-                                <!-- <span>Đăng nhập / Đăng ký</span> -->
-                            </a>
-                        </li>
-                        <!-- <li class="col-2 divider"></li> -->
-                        <li class="col-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
-                            </svg>
-                            <a href="http://" class="text-decoration-none text-dark">
-                                <span>Giỏ hàng</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="user">
                         <?php if (Yii::$app->user->isGuest) { ?>
+                            <li class='col-6'>
                             <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Đăng nhập </a>
                         <?php } else { ?>
                             <!--                                <i class="fa fa-user"></i> <span>--><?php //= Yii::$app->user->identity->username 
@@ -94,7 +79,16 @@ use yii\helpers\Html;
                             </ul>
                         <?php } ?>
                         </a>
-                    </ul>
+                            </li>
+                            <li class="col-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+                            </svg>
+                            <a href="http://" class="text-decoration-none text-dark">
+                                <span>Giỏ hàng</span>
+                            </a>
+                        </li>
+                    <!-- </ul> -->
                     </ul>
                 </div>
             </div>
@@ -149,13 +143,16 @@ use yii\helpers\Html;
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Câu chuyện thương hiệu</a>
+                            <a class="nav-link" href='<?php echo Url::to(['site/cauchuyenthuonghieu']); ?>'>
+                                Câu chuyện thương hiệu
+                            </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Nhượng quyền</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sản phẩm</a>
+                            <a class="nav-link" href="<?= Url::to(['site/products']) ?>">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Khuyến mãi</a>
@@ -174,7 +171,7 @@ use yii\helpers\Html;
             </nav>
         </div>
     </header>
-
+    <div class="div-padding"></div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>

@@ -107,7 +107,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->renderAjax('homepage');
     }
 
     /**
@@ -145,5 +145,20 @@ class SiteController extends Controller
     public function actionLogin2()
     {
         return $this->render('login2');
+    }
+
+    public function actionCauchuyenthuonghieu(){
+        return $this->renderAjax('cauchuyenthuonghieu');
+    }
+
+    public function actionProducts()
+    {
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->renderAjax('products', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 }
