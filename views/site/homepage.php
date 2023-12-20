@@ -1,4 +1,8 @@
 <?php
+
+use yii\web\View;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +15,15 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../web/css/homepage.css" />
+    <link rel="stylesheet" href="css/homepage.css" />
 
     <title>HomePage</title>
 </head>
 
 <body>
-
-    <?php include './navbar.php'; ?>
+    <div class="header-navbar">
+    <?php echo $this->render('navbar'); ?>
+    </div>
     <div class="content-container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators flickity-page-dots">
@@ -207,7 +212,7 @@
 
         </div>
     </div>
-    <?php include './footer.php'; ?>
+    <?php echo $this->render('footer'); ?>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">

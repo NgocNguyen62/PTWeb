@@ -1,4 +1,9 @@
 <?php
+
+use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+// use Yii;
+use yii\helpers\Html;
 ?>
 
 <head>
@@ -9,16 +14,16 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../web/css/navbar.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
 </head>
 
 <body>
     <header class="header has-sticky sticky-jump">
-        <div class="wrapper">
+        <div class="wrapper fixed-div">
             <div id="masthead" class="menu flex-row container-fluid row align-items-center logo-left medium-logo-center">
                 <!-- Logo -->
                 <div id="logo" class="col-3">
-                    <a href="homepage.php" title="Trung Nguyên E-Coffee" rel="home">
+                    <a href="./homepage.php" title="Trung Nguyên E-Coffee" rel="home">
                         <img width="200" height="100" alt="Trung Nguyên E-Coffee" src="https://trungnguyenecoffee.com/wp-content/uploads/2020/09/Logo-Màu-Trằng-E-Coffee.png" class="header_logo header-logo ls-is-cached lazyloaded" />
                     </a>
                 </div>
@@ -47,8 +52,9 @@
                 <div id="account" class="col-5">
                     <ul class="nav nav-right container-fluid d-flex align-items-center">
                         <li class="col-6">
-                            <a href="register.php" title="" class="text-decoration-none text-dark">
-                                <span>Đăng nhập / Đăng ký</span>
+                            <a href="" class="text-decoration-none text-dark">
+                                <?= !Yii::$app->user->isGuest ? Html::a('đăng xuất', ['site/logout'], ['data-method' => 'post', 'class' => 'dropdown-item']) : Html::a('Đăng nhập / Đăng ký', ['site/login']) ?>
+                                <!-- <span>Đăng nhập / Đăng ký</span> -->
                             </a>
                         </li>
                         <!-- <li class="col-2 divider"></li> -->
@@ -60,6 +66,35 @@
                                 <span>Giỏ hàng</span>
                             </a>
                         </li>
+                    </ul>
+                    <ul class="user">
+                        <?php if (Yii::$app->user->isGuest) { ?>
+                            <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Đăng nhập </a>
+                        <?php } else { ?>
+                            <!--                                <i class="fa fa-user"></i> <span>--><?php //= Yii::$app->user->identity->username 
+                                                                                                    ?><!--</span>-->
+                            <span><?= Yii::$app->user->identity->username ?></span>
+                            <ul class="sub-user">
+                                <li>
+                                    <?php
+                                    ActiveForm::begin();
+                                    echo Html::a(
+                                        'Đăng xuất ',
+                                        ['site/logout'],
+                                        [
+                                            'class' => 'dropdown-item',
+                                            'data' => [
+                                                'method' => 'post',
+                                            ],
+                                        ]
+                                    );
+                                    ActiveForm::end();
+                                    ?>
+                                </li>
+                            </ul>
+                        <?php } ?>
+                        </a>
+                    </ul>
                     </ul>
                 </div>
             </div>

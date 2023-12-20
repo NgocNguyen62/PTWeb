@@ -64,14 +64,13 @@ class SiteController extends Controller
     {
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-//        $pagination = new Pagination([
-//            'defaultPageSize' => 12, // Số mục trên mỗi trang
-//            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
-//        ]);
+        //        $pagination = new Pagination([
+        //            'defaultPageSize' => 12, // Số mục trên mỗi trang
+        //            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
+        //        ]);
 
-//        $dataProvider->pagination = $pagination;
-        return $this->render('index', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
-
+        //        $dataProvider->pagination = $pagination;
+        return $this->render('index', ['dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
     }
 
     /**
@@ -86,14 +85,15 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+        // die();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-//            var_dump($model);
-//            die();
-            return $this->goBack();
+            //            var_dump($model);
+            // die();
+            return $this->renderAjax('homepage');
         }
 
         $model->password = '';
-        return $this->render('login', [
+        return $this->renderAjax('login', [
             'model' => $model,
         ]);
     }
@@ -137,5 +137,13 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    public function actionHomepage()
+    {
+        return $this->renderAjax('homepage');
+    }
 
+    public function actionLogin2()
+    {
+        return $this->render('login2');
+    }
 }
