@@ -23,11 +23,7 @@ $items = Yii::$app->user->identity->getCart();
 </head>
 <body>
 <?php echo $this->render('navbar'); ?>
-<img src="https://trungnguyenecoffee.com/wp-content/uploads/2021/12/0f35c6493b7ccc22956d-1400x556-1.jpg" alt="" style="width: 100%">
 <div class="master-container">
-    <div class="title-box">
-        <span class="section-title-span"><strong>Cà phê đóng gói</strong></span>
-    </div>
     <table>
         <thead>
         <tr>

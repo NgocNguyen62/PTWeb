@@ -79,9 +79,15 @@ $config = [
             ],
             [
                 'allow' => true,
+                'controllers' => ['cart'],
+                // 'actions' => [],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['about', 'index','homepage','products','cauchuyenthuonghieu'],
-                'roles' => ['?'],
+                'actions' => ['login', 'logout', 'home','categories','category-details'],
+                'roles' => ['?', '@'],
             ],
             [
                 'allow' => true,
@@ -99,10 +105,10 @@ $config = [
                 'actions' => ['cart'],
                 'roles' => ['@'],
             ],
-//            [
-//                'allow' => true,
-//                'roles' => ['?', '@'],
-//            ],
+           [
+               'allow' => true,
+               'roles' => ['?', '@'],
+           ],
         ],
     ],
 ];

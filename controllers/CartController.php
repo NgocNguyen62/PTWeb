@@ -69,6 +69,8 @@ class CartController extends Controller
      */
     public function actionCreate($product_id, $quantity)
     {
+        // var_dump(Yii::$app->user->identity->getCart());
+        // die();
         $model = new Cart();
         $model->user_id = \Yii::$app->user->identity->id;
         $model->product_id = $product_id;
