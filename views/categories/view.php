@@ -52,16 +52,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div style="text-align: center;">
 
-        <p>
-            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => 'Are you sure you want to delete this item?',
-                    'method' => 'post',
-                ],
-            ]) ?>
-        </p>
+        <?= Html::a('Cập nhật', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Xóa', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
 
     </div>
 
@@ -132,11 +130,11 @@ $this->params['breadcrumbs'][] = $this->title;
         }
 
         h1 {
-    text-align: center;
-    color: #666;
-    text-shadow: 1px 1px 0px #FFF;
-    margin: 47px -2px 33px 8px;
-}
+            text-align: center;
+            color: #666;
+            text-shadow: 1px 1px 0px #FFF;
+            margin: 47px -2px 33px 8px;
+        }
 
         input {
             border-radius: 0px 5px 5px 0px;
@@ -209,6 +207,73 @@ $this->params['breadcrumbs'][] = $this->title;
             font-weight: 400;
             font-size: 13px;
             color: #DE5959;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #666;
+            text-shadow: 1px 1px 0px #FFF;
+            margin: 47px -2px 33px 8px;
+        }
+
+        .btn-primary {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.1s;
+            background-color: #57d699;
+            font-family: Roboto;
+
+        }
+
+        .btn-danger {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: AC 4px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.1s;
+            background-color: #e78e96;
+            font-family: Roboto;
+
+        }
+
+        .btn-primary:hover {
+            background-color: #2f9345;
+        }
+
+        .btn-primary:active {
+            box-shadow: 0 0 9e9q inset #0009;
+            background-color: black;
+            outline: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #d73b49;
+        }
+
+        .btn-danger:active {
+            box-shadow: 0 0 2e2q inset #0009;
+            background-color: black;
+            outline: none;
+        }
+
+        .nav.child_menu>li>a {
+            color: #000000;
+            font-weight: 100;
         }
     </style>
 
