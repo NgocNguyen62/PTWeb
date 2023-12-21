@@ -80,7 +80,7 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['about', 'index'],
+                'actions' => ['about', 'index','homepage','products','cauchuyenthuonghieu'],
                 'roles' => ['?'],
             ],
             [
@@ -95,8 +95,14 @@ $config = [
             ],
             [
                 'allow' => true,
-                'roles' => ['?', '@'],
+                'controllers' => ['site'],
+                'actions' => ['cart'],
+                'roles' => ['@'],
             ],
+//            [
+//                'allow' => true,
+//                'roles' => ['?', '@'],
+//            ],
         ],
     ],
 ];

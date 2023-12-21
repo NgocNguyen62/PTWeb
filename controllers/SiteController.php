@@ -178,4 +178,7 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    public function actionCart(){
+        return $this->renderAjax('cart');
+    }
 }
