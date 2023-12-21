@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\ContactForm;
 use app\models\form\LoginForm;
+use app\models\Products;
 use app\models\search\ProductsSearch;
 use Yii;
 use yii\filters\AccessControl;
@@ -64,14 +65,13 @@ class SiteController extends Controller
     {
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-//        $pagination = new Pagination([
-//            'defaultPageSize' => 12, // Số mục trên mỗi trang
-//            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
-//        ]);
+        //        $pagination = new Pagination([
+        //            'defaultPageSize' => 12, // Số mục trên mỗi trang
+        //            'totalCount' => $dataProvider->getTotalCount(), // Tổng số mục
+        //        ]);
 
-//        $dataProvider->pagination = $pagination;
-        return $this->render('index', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
-
+        //        $dataProvider->pagination = $pagination;
+        return $this->render('index', ['dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
     }
 
     /**
@@ -86,14 +86,15 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+        // die();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-//            var_dump($model);
-//            die();
-            return $this->goBack();
+            //            var_dump($model);
+            // die();
+            return $this->renderAjax('homepage');
         }
 
         $model->password = '';
-        return $this->render('login', [
+        return $this->renderAjax('login', [
             'model' => $model,
         ]);
     }
@@ -107,7 +108,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->renderAjax('homepage');
     }
 
     /**
@@ -137,5 +138,44 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    public function actionHomepage()
+    {
+        return $this->renderAjax('homepage');
+    }
 
+    public function actionLogin2()
+    {
+        return $this->render('login2');
+    }
+
+    public function actionCauchuyenthuonghieu(){
+        return $this->renderAjax('cauchuyenthuonghieu');
+    }
+
+    public function actionProducts()
+    {
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->renderAjax('products', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionCategoryDetails($id)
+    {
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->searchCate($this->request->queryParams, $id);
+
+        return $this->renderAjax('category-details', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+    }
+
+    public function actionViewsProduct($id)
+    {
+        $model = Products::findOne(['id'=>$id]);
+        return $this->renderAjax('views-product', [
+            'model' => $model,
+        ]);
+    }
 }

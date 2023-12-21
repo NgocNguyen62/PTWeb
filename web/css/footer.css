@@ -1,0 +1,21 @@
+#account a:hover {
+    margin-bottom: 2px;
+    border-bottom: 4px solid #585454;
+    
+}
+
+footer{
+    font-family: 'Times New Roman', Times, serif;
+}
+footer .section .information{
+    background-color: black;
+    color: white;
+}
+
+div.section-content {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
