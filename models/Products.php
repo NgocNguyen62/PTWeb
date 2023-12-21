@@ -52,6 +52,13 @@ class Products extends \app\models\base\Products
     {
         return Products::find()->where(['category_id' => $cate])->andWhere(['<>', 'id', $this->id])->limit($limit)->all();
     }
+    public function inCart(){
+        $user = Yii::$app->user->identity;
+        $cart = $user->getCart();
+//        var_dump($favorite);
+//        die();
+        return in_array($this, $cart);
+    }
 
 }
 

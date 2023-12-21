@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\ContactForm;
 use app\models\form\LoginForm;
+use app\models\Products;
 use app\models\search\ProductsSearch;
 use Yii;
 use yii\filters\AccessControl;
@@ -159,6 +160,22 @@ class SiteController extends Controller
         return $this->renderAjax('products', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionCategoryDetails($id)
+    {
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->searchCate($this->request->queryParams, $id);
+
+        return $this->renderAjax('category-details', ['dataProvider'=>$dataProvider, 'searchModel'=>$searchModel]);
+    }
+
+    public function actionViewsProduct($id)
+    {
+        $model = Products::findOne(['id'=>$id]);
+        return $this->renderAjax('views-product', [
+            'model' => $model,
         ]);
     }
 }

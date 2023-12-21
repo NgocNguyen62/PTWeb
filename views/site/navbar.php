@@ -4,6 +4,7 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 // use Yii;
 use yii\helpers\Html;
+$cates = \app\models\base\Categories::find()->all();
 ?>
 
 <head>
@@ -104,7 +105,7 @@ use yii\helpers\Html;
                                 <span>Danh mục sản phẩm</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#/Caphedonggoi">
+                                <!-- <a class="dropdown-item" href="#/Caphedonggoi">
                                     <img width="30" height="30" alt="cà phê đóng gói" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_Ca-phe-dong-goi.png" />
                                     <span>Cà phê đóng gói</span>
                                 </a>
@@ -139,7 +140,10 @@ use yii\helpers\Html;
                                 <a class="dropdown-item" href="#">
                                     <img width="30" height="30" alt="cà phê đóng gói" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_Ca-phe-dong-goi.png" />
                                     Cà phê đóng gói
-                                </a>
+                                </a> -->
+                                <?php foreach ($cates as $cate){ ?>
+                                    <a class="dropdown-item" href="<?= Url::to(['site/category-details', 'id'=>$cate->id]) ?>" ><?= $cate->name ?></a>
+                                    <?php }?>
                             </div>
                         </li>
                         <li class="nav-item">

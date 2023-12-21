@@ -28,14 +28,16 @@ $products = $dataProvider->getModels();
     <div class="title-box">
             <span class="section-title-span"><strong>Cà phê đóng gói</strong></span>
     </div>
-    <div class="container-products">
-        
-            <div class="row-products">
+    <div class="container-products">  
                 <?php foreach ($products as $product) {?>
+                    <div class="row-products">
                         <div class="col-products">
-                            <a class="width-a" href="<?= Url::to(['products/view', 'id' => $product->id]) ?>">
+                            <a class="width-a" href="<?= Url::to(['site/views-product', 'id' => $product->id]) ?>">
                                 <div class="item">
-                                    <img src="<?= $product->avatar ?>" alt="" class="img-products">
+                                    <div class="image-container">
+                                        <img src="<?= $product->avatar ?>" alt="" class="img-products">
+                                        <div class="discount"><strong>-<?= $product->discount ?>%</strong></div>
+                                    </div>
                                     <span class="name-line"><?= $product->name ?></span>
                                     <div class="price">
                                         <div>
@@ -57,8 +59,9 @@ $products = $dataProvider->getModels();
                             <?php $form = ActiveForm::begin(['class'=>'form-horizontal', 'action'=>Url::toRoute(['products/add-to-cart','id'=>$product->id])]); ?>
                             <?php ActiveForm::end(); ?>
                         </div>
+                        </div>
                 <?php }?>
-            </div>
+            
         </div>
     </div>
     <?php echo $this->render('footer'); ?>
