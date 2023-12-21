@@ -129,5 +129,17 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
         }
         return $list;
     }
+    public function countCart(){
+        $cart = $this->getCart();
+        return count($cart);
+    }
+    public function getTotalPrice(){
+        $cart = $this->getCart();
+        $total = 0;
+        foreach ($cart as $item){
+            $total += $item->price();
+        }
+        return $total;
+    }
 
 }
