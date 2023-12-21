@@ -16,7 +16,10 @@ use yii\widgets\ActiveForm;
     <!-- <div class="logo"></div> -->
     <div class="login-block">
         <h1>Tạo mới danh mục</h1>
+        <label class="control-label2" for="userform-username2">Tên danh mục</label>
+
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <label class="control-label2" for="userform-username2">Mô tả</label>
 
         <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
         <div class="form-group">
@@ -26,6 +29,9 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
     <style>
+        .control-label{
+        display: none;
+    }
         body {
             background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
             background-size: cover;

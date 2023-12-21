@@ -18,24 +18,33 @@ use yii\widgets\ActiveForm;
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- <div class="logo"></div> -->
     <div class="login-block">
-        <h1>Tạo mới danh mục</h1>
+        <h1>Tạo mới hồ sơ người dùng</h1>
+        <label class="control-label2" for="userform-username2">Họ</label>
+
         <?= $form->field($model, 'firstName')->textInput(['maxlength' => true])->label('Họ') ?>
+        <label class="control-label2" for="userform-username2">Tên</label>
 
         <?= $form->field($model, 'lastName')->textInput(['maxlength' => true])->label('Tên') ?>
+        <label class="control-label2" for="userform-username2">Số điện thoại</label>
 
         <?= $form->field($model, 'phoneNum')->textInput(['maxlength' => true])->label('Số điện thoại') ?>
+        <label class="control-label2" for="userform-username2">Email</label>
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+        <label class="control-label2" for="userform-username2">Địa chỉ</label>
 
 
         <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
         <div class="form-group">
-            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton('Lưu', ['class' => 'btn btn-success']) ?>
         </div>
     </div>
     <?php ActiveForm::end(); ?>
 
     <style>
+        .control-label{
+        display: none;
+    }
         body {
             background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
             background-size: cover;

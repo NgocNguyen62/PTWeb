@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var app\models\base\User $model */
 
-$this->title = $model->id;
+// $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -18,14 +18,13 @@ $this->params['breadcrumbs'][] = $this->title;
     
 
     <form class="user-form">
-        <h1 class="username">
-            <?php echo $model->id ?>
+        <h1 class="username" text-align: center>
         </h1>
         <div class="contentform">
             <!-- <div class="leftcontact"> -->
             <div class="form-group">
-                <p>Tạo thành công người dùng </p>
-                <span class="icon-case"><i class="fa fa-envelope-open icon-style"> </i></span>
+            <p>ID </p>
+                <span class="icon-case"><i class="fa fa-id-card icon-style"> </i></span>
                 <div class="form-control" style="margin-left: 40px">
                     <?php echo $model->id ?>
                 </div>
@@ -43,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="form-group">
                 <p>Vai trò </p>
-                <span class="icon-case"><i class="fa fa-user-circle icon-style"></i></span>
+                <span class="icon-case"><i class="fa fa-info icon-style"></i></span>
                 <div class="form-control">
                     <?php echo $model->role ?>
                 </div>
@@ -75,6 +74,12 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <style>
+    p {
+  font-family: Open Sans, sans-serif;
+}
+    .username{
+        margin-left: 100px;
+    }
         .form-control {
             margin-left: 40px;
             width: 69%;
@@ -170,9 +175,10 @@ $this->params['breadcrumbs'][] = $this->title;
         }
 
         .form-group {
-            overflow: hidden;
-            clear: both;
-        }
+    overflow: hidden;
+    clear: both;
+    margin-left: 120px;
+}
 
         .icon-case {
             width: 35px;
@@ -227,21 +233,20 @@ $this->params['breadcrumbs'][] = $this->title;
         }
 
         .btn-primary {
-            width: 150px;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 20px;
-            color: white;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            transition-duration: 0.1s;
-            background-color: #57d699;
-            font-family: Roboto;
-
-        }
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.1s;
+    background-color: #0aff89;
+    font-family: Open sans-serif;
+}
 
         .btn-danger {
             width: 150px;
@@ -255,7 +260,7 @@ $this->params['breadcrumbs'][] = $this->title;
             text-decoration: none;
             display: inline-block;
             transition-duration: 0.1s;
-            background-color: #e78e96;
+            background-color: #f24f5d;
             font-family: Roboto;
 
         }

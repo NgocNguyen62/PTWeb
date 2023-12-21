@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var app\models\base\UserProfile $model */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'User Profiles', 'url' => ['index']];
+// $this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Hồ sơ người dùng', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -19,13 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <form class="user-form">
     <h1 class="username">
-      <?php echo $model->id ?>
+      <!-- <?php echo $model->id ?> -->
     </h1>
     <div class="contentform">
       <div class="leftcontact">
         <div class="form-group">
           <p>ID </p>
-          <span class="icon-case"><i class="fa fa-envelope-open icon-style"> </i></span>
+          <span class="icon-case"><i class="fa fa-tag icon-style"> </i></span>
           <div class="form-control" style="margin-left: 40px">
             <?php echo $model->user_id ?>
           </div>
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="form-group">
           <p>Số điện thoại </p>
-          <span class="icon-case"><i class="fa fa-clock icon-style"></i></span>
+          <span class="icon-case"><i class="fa fa-phone icon-style"></i></span>
           <div class="form-control">
             <?php echo $model->phoneNum ?>
           </div>
@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="form-group">
           <p>Email </p>
-          <span class="icon-case"><i class="fa fa-clock icon-style"></i></span>
+          <span class="icon-case"><i class="fa fa-envelope-open icon-style"></i></span>
           <div class="form-control">
             <?php echo $model->email ?>
           </div>
@@ -74,8 +74,8 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
         <div class="form-group">
-          <p><Address></Address> </p>
-          <span class="icon-case"><i class="fa fa-clock icon-style"></i></span>
+          <p>Address</Address> </p>
+          <span class="icon-case"><i class="fa fa-map-marker icon-style"></i></span>
           <div class="form-control">
             <?php echo $model->address ?>
           </div>
@@ -252,38 +252,37 @@ textarea {
 
 
 .btn-primary {
-       width: 150px;
-       padding: 10px;
-       border: none;
-       border-radius: 4px;
-       font-size: 20px;
-       color: white;
-       cursor: pointer;
-       text-align: center;
-       text-decoration: none;
-       display: inline-block;
-       transition-duration: 0.1s;
-       background-color: #57d699;
-       font-family: Roboto;
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.1s;
+    background-color: #0aff89;
+    font-family: Open sans-serif;
+}
 
-   }
+        .btn-danger {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: AC 4px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            transition-duration: 0.1s;
+            background-color: #f24f5d;
+            font-family: Roboto;
 
-   .btn-danger {
-       width: 150px;
-       padding: 10px;
-       border: none;
-       border-radius:AC 4px;
-       font-size: 20px;
-       color: white;
-       cursor: pointer;
-       text-align: center;
-       text-decoration: none;
-       display: inline-block;
-       transition-duration: 0.1s;
-       background-color: #e78e96;
-       font-family: Roboto;
-
-   }
+        }
 
    .btn-primary:hover {
        background-color: #2f9345;

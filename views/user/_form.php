@@ -19,15 +19,18 @@ use yii\widgets\ActiveForm;
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <!-- <div class="logo"></div> -->
 <div class="login-block">
-    <h1>Tạo mới danh mục</h1>
+    <h1>Tạo mới người dùng</h1>
+    <label class="control-label2" for="userform-username2">Tên người dùng</label>
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+    <label class="control-label2" for="userform-username2">Mật khẩu</label>
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+    <label class="control-label2" for="userform-username2">Vai trò</label>
 
-    <?= $form->field($model, 'role')->dropDownList(\app\models\User::getRoles(), ['prompt' => 'Select']) ?>
+    <?= $form->field($model, 'role')->dropDownList(\app\models\User::getRoles(), ['prompt' => 'Admin/User']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Lưu', ['class' => 'btn btn-success']) ?>
     </div>
 </div>
 <?php ActiveForm::end(); ?>
@@ -36,6 +39,10 @@ use yii\widgets\ActiveForm;
 </div>
 
 <style>
+    .control-label{
+        display: none;
+    }
+ 
         body {
             background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
             background-size: cover;

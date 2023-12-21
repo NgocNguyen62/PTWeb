@@ -15,33 +15,45 @@ use yii\widgets\ActiveForm;
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- <div class="logo"></div> -->
     <div class="login-block">
-        <h1>Tạo mới danh mục</h1>
+        <h1>Tạo mới sản phẩm</h1>
+        <label class="control-label2" for="userform-username2">Tên sản phẩm</label>
+
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <label class="control-label2" for="userform-username2">Danh mục</label>
 
     <?= $form->field($model, 'category_id')->dropDownList(
-        \app\models\Products::getCate(), ['prompt' => 'Select']
+        \app\models\Products::getCate(), ['prompt' => 'Chọn danh mục']
     ) ?>
+        <label class="control-label2" for="userform-username2">Mô tả sản phẩm</label>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <label class="control-label2" for="userform-username2">Trạng thái</label>
 
     <?= $form->field($model, 'status')->dropDownList(
         \app\models\Products::getStatus(), ['prompt' => 'Select']
     ) ?>
+        <label class="control-label2" for="userform-username2">Hình Ảnh</label>
 
     <?= $form->field($model, 'avatar')->fileInput(['accept' => 'image/*',
         'onchange' => 'previewImage(event)']) ?>
     <div id="image-preview"></div>
+    <label class="control-label2" for="userform-username2">Giá gốc</label>
+
     <?= $form->field($model, 'original_price')->textInput() ?>
+    <label class="control-label2" for="userform-username2">Giá khuyến mãi</label>
 
     <?= $form->field($model, 'discount')->textInput() ?>
         <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Lưu', ['class' => 'btn btn-success']) ?>
     </div>
     </div>
     <?php ActiveForm::end(); ?>
 
 
     <style>
+        .control-label{
+        display: none;
+    }
         body {
             background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
             background-size: cover;
@@ -56,13 +68,13 @@ use yii\widgets\ActiveForm;
         }
 
         .login-block {
-            width: 320px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 5px;
-            border-top: 5px solid #ff656c;
-            margin: 0 auto;
-        }
+    width: 589px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    border-top: 5px solid #ff656c;
+    margin: 0 auto;
+}
 
         .login-block h1 {
             text-align: center;
