@@ -137,4 +137,12 @@ class CartController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+    public function actionUpdateQuantity($id, $value){
+        $model = Cart::findOne(['user_id'=>Yii::$app->user->id, 'product_id'=>$id]);
+        $model->quantity += $value;
+        if($model->save()){
+            return $this->redirect(['site/cart']);
+        }
+
+    }
 }

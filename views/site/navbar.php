@@ -16,6 +16,32 @@ $cates = \app\models\base\Categories::find()->all();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/navbar.css" />
+    <style>
+        .sub-user{
+            position: absolute;
+            width: 150px;
+            /*border: 1px solid #e75e8d;*/
+            /*padding: 10px 0 10px 20px;*/
+            display: none;
+            border-radius: 1rem;
+            background-color: #f0f0f0;
+            align-items: center;
+            padding-right: 40px;
+        }
+        .sub-user .dropdown-item {
+            text-align: center;
+            justify-content: center;
+        }
+        .user:hover .sub-user {
+            display: block;
+            position: absolute;
+            z-index: 100;
+        }
+        .user{
+            text-decoration: none;
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,37 +56,31 @@ $cates = \app\models\base\Categories::find()->all();
                 </div>
                 <!-- Search Bar -->
                 <div id="search-bar" class="col-4">
-                    <form role="search" method="get" class="search-form" action="https://trungnguyenecoffee.com/">
-                        <div class="input-group">
-                            <input type="search" id="woocommerce-product-search-field-0" class="form-control" placeholder="Tìm kiếm sản phẩm" value="" name="s" autocomplete="off" />
-                            <div class="input-group-append">
-                                <button type="submit" value="Tìm kiếm" class="btn btn-secondary">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="live-search-results text-left z-top">
-                            <div class="autocomplete-suggestions" style="
-                      position: absolute;
-                      display: none;
-                      max-height: 300px;
-                      z-index: 9999;
-                    "></div>
-                        </div>
-                    </form>
+                    <?php
+                    $searchModel = new \app\models\search\ProductsSearch();
+                    $form = ActiveForm::begin([
+                        'method' => 'get',
+                        'action' => ['site/products'],
+                    ]); ?>
+                    <?= $form->field($searchModel, 'name')->input('text',['placeholder'=>'Tìm kiếm', 'id'=>'searchText', 'onkeypress'=>'handle'])->label(false) ?>
+                    <?php ActiveForm::end();
+                    ?>
                 </div>
                 <!-- Signin/Logup -->
                 <div id="account" class="col-5">
                     
                     <ul class="nav nav-right container-fluid d-flex align-items-center">
+                        <ul class="user">
                         <?php if (Yii::$app->user->isGuest) { ?>
                             <li class='col-6'>
                             <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Đăng nhập </a>
                         <?php } else { ?>
-                            <!--                                <i class="fa fa-user"></i> <span>--><?php //= Yii::$app->user->identity->username 
-                                                                                                    ?><!--</span>-->
                             <span><?= Yii::$app->user->identity->username ?></span>
                             <ul class="sub-user">
+                                <li><?= \app\models\UserProfile::findOne(['user_id' => Yii::$app->user->identity->id]) !== null ? Html::a('Thông tin', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= Url::to(['user-profile/change-pass/', 'id' => Yii::$app->user->identity->getId()]) ?>">Tài khoản</a>
+                                </li>
                                 <li>
                                     <?php
                                     ActiveForm::begin();
@@ -77,10 +97,11 @@ $cates = \app\models\base\Categories::find()->all();
                                     ActiveForm::end();
                                     ?>
                                 </li>
+
                             </ul>
                         <?php } ?>
-                        </a>
                             </li>
+                        </ul>
                             <li class="col-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
@@ -105,42 +126,6 @@ $cates = \app\models\base\Categories::find()->all();
                                 <span>Danh mục sản phẩm</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <!-- <a class="dropdown-item" href="#/Caphedonggoi">
-                                    <img width="30" height="30" alt="cà phê đóng gói" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_Ca-phe-dong-goi.png" />
-                                    <span>Cà phê đóng gói</span>
-                                </a>
-                                <a class="dropdown-item" href="#/Quatangcaocap">
-                                    <img width="30" height="30" alt="quà tặng cao cấp" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/12/Icon-web-gift.png" />
-                                    <span>Quà tặng cao cấp</span>
-                                </a>
-                                <a class="dropdown-item" href="#/Vatphambanle">
-                                    <img width="30" height="30" alt="vật phẩm bán lẻ" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_Vat-pham-ca-phe.png" />
-                                    <span>Vật phẩm bán lẻ</span>
-                                </a>
-                                <a class="dropdown-item" href="#/Vatphamsachquy">
-                                    <img width="30" height="30" alt="vật phẩm sách quý" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_San-pham-sach-quy.png" />
-                                    <span>Vật phẩm sách quý</span>
-                                </a>
-                                <a class="dropdown-item" href="#/Vatphamdoitac">
-                                    <img width="30" height="30" alt="vật phẩm đối tác" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_San-pham-doi-tac.png" />
-                                    <span>Vật phẩm đối tác</span>
-                                </a>
-                                <a class="dropdown-item" href="#/maymocthietbi">
-                                    <img width="30" height="30" alt="máy móc thiết bị" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_May-moc-thiet-bi.png" />
-                                    <span> Máy móc thiết bị</span>
-                                </a>
-                                <a class="dropdown-item" href="#/Congcudungcu">
-                                    <img width="30" height="30" alt="cà phê đóng gói" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_Cong-cu-dung-cu.png" />
-                                    <span>Công cụ dụng cụ</span>
-                                </a>
-                                <a class="dropdown-item" href="#/Baobithuonghieu">
-                                    <img width="30" height="30" alt="cà phê đóng gói" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_Bao-bi-thuong-hieu.png" />
-                                    <span>Bao bì thương hiệu</span>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <img width="30" height="30" alt="cà phê đóng gói" decoding="async" loading="lazy" src="https://trungnguyenecoffee.com/wp-content/uploads/2021/08/Icon-web_Ca-phe-dong-goi.png" />
-                                    Cà phê đóng gói
-                                </a> -->
                                 <?php foreach ($cates as $cate){ ?>
                                     <a class="dropdown-item" href="<?= Url::to(['site/category-details', 'id'=>$cate->id]) ?>" ><?= $cate->name ?></a>
                                     <?php }?>
