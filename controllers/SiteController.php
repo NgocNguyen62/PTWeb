@@ -181,4 +181,24 @@ class SiteController extends Controller
     public function actionCart(){
         return $this->renderAjax('cart');
     }
+
+    public function actionCuahang(){
+        return $this->renderAjax('cuahang');
+    }
+
+    public function actionTintuc(){
+        return $this->renderAjax('tintuc');
+    }
+
+    public function actionNhuongquyen(){
+        return $this->renderAjax('nhuongquyen');
+    }
+
+    public function actionNavbar(){
+        return $this->renderAjax('navbar');
+    }
+
+    public function actionFooter(){
+        return $this->renderAjax('footer');
+    }
 }

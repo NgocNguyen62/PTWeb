@@ -153,7 +153,7 @@ $cates = \app\models\base\Categories::find()->all();
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhượng quyền</a>
+                            <a class="nav-link" href="<?php echo Url::to(['site/nhuongquyen']); ?>">Nhượng quyền</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= Url::to(['site/products']) ?>">Sản phẩm</a>
@@ -162,10 +162,10 @@ $cates = \app\models\base\Categories::find()->all();
                             <a class="nav-link" href="#">Khuyến mãi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tin tức</a>
+                            <a class="nav-link" href="<?php echo Url::to(['site/tintuc']); ?>">Tin tức</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cửa hàng</a>
+                            <a class="nav-link" href="<?php echo Url::to(['site/cuahang']); ?>">Cửa hàng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Tuyển dụng</a>

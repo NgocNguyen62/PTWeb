@@ -22,15 +22,8 @@ use yii\web\View;
 
 <body>
     <?php echo $this->render('navbar'); ?>
-    <div class="content-container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators flickity-page-dots">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active dot" aria-label="Page dot 1"></li>
-                <li data-target="#carouselExampleIndicators" class="dot" data-slide-to="1" aria-label="Page dot 2">
-                </li>
-                <li data-target="#carouselExampleIndicators" class="dot" data-slide-to="2" aria-label="Page dot 3">
-                </li>
-            </ol>
+    <div class="wrapper">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="https://trungnguyenecoffee.com/wp-content/uploads/2023/10/1366x540-1400x553.jpg" class="d-block w-100" alt="...">
@@ -50,6 +43,7 @@ use yii\web\View;
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+
         </div>
         <div class="content">
 
