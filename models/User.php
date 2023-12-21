@@ -138,6 +138,7 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
         foreach ($items as $item) {
             $total += $item[0]->price * $item[1];
         }
+        return $total;
     }
 
 }
