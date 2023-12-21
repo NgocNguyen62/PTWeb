@@ -9,9 +9,16 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
+                ],
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'n5c356VpP7C5XJPqnejOQRXTjV3r4_IT',
@@ -49,7 +56,7 @@ $config = [
         'authManager' => [
             'class' => 'yii\rbac\PhpManager',
             'defaultRoles' => ['admin', 'user'],
-//            'itemFile' => '@app/rbac/items.php',
+            //            'itemFile' => '@app/rbac/items.php',
 //            'assignmentFile' => '@app/rbac/assignments.php',
 //            'ruleFile' => '@app/rbac/UserGroupRule.php',
         ],
@@ -69,12 +76,12 @@ $config = [
             [
                 'actions' => ['error'],
                 'allow' => true,
-                'roles' => ["?","@"],
+                'roles' => ["?", "@"],
             ],
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['login', 'logout', 'home','categories','category-details'],
+                'actions' => ['login', 'logout', 'home', 'categories', 'category-details'],
                 'roles' => ['?', '@'],
             ],
             [
