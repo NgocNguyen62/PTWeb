@@ -96,7 +96,7 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['cart'],
+                'actions' => ['cart','user-profile','change-pass'],
                 'roles' => ['@'],
             ],
 //            [
