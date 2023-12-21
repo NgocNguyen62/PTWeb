@@ -105,6 +105,12 @@ $config = [
                 'actions' => ['cart'],
                 'roles' => ['@'],
             ],
+            [
+                'allow' => true,
+                'controllers' => ['cart'],
+//                'actions' => ['cart'],
+                'roles' => ['@'],
+            ],
 //            [
 //                'allow' => true,
 //                'roles' => ['?', '@'],

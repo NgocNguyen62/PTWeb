@@ -44,9 +44,21 @@ $items = Yii::$app->user->identity->getCart();
         ?>
         <tr>
             <td><img src="<?= $product->avatar ?>" alt="" class="img-products"> <?= $product->name?></td>
-            <td><?= $product->price ?>đ</td>
-            <td><?= $quantity ?></td>
-            <td><?= $product->price * $quantity?>đ</td>
+            <td class="product">
+                <img class="img-cart" src="<?= $product->avatar ?>" alt="">
+                <?= $product->name ?>
+            </td>
+            <td class="price" id="price-<?= $product->id ?>"><?= $product->price ?>đ</td>
+            <td>
+                <div class="quantity">
+                    <a class="btn" href="<?= Url::to(['cart/update-quantity', 'id'=>$product->id,'value'=>-1]) ?>">-</a>
+                    <?php
+                    echo $quantity;
+                    ?>
+                    <a class="btn" href="<?= Url::to(['cart/update-quantity', 'id'=>$product->id,'value'=>1]) ?>">+</a>
+                </div>
+            </td>
+            <td class="subtotal" id="subtotal-<?= $product->id ?>"><?= $product->price * $quantity ?>đ</td>
             <td>
                 <?php
                 ActiveForm::begin();
