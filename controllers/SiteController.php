@@ -202,8 +202,9 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-    public function actionChangePass($id) {
-        $user = User::findOne(['id'=>$id]);
+    public function actionChangePass($id)
+    {
+        $user = User::findOne(['id' => $id]);
         $model = new UserForm();
         $model->setAttributes($user->attributes);
         $model->password = "";
@@ -215,6 +216,7 @@ class SiteController extends Controller
         return $this->renderAjax('change-pass', [
             'model' => $model,
         ]);
+    }
 
 
     public function actionCuahang(){

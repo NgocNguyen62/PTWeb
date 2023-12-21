@@ -84,11 +84,8 @@ $cates = \app\models\base\Categories::find()->all();
                                 <li><?= \app\models\UserProfile::findOne(['user_id' => Yii::$app->user->identity->id]) !== null ? Html::a('Tài khoản', ['site/user-profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
                                 <li>
                                     <a class="dropdown-item" href="<?= Url::to(['site/change-pass', 'id' => Yii::$app->user->identity->getId()]) ?>">Đổi mật khẩu</a>
-                          </li>
-                                <li>
-                                    <a class="dropdown-item" href="<?= Url::to(['user-profile/change-pass/', 'id' => Yii::$app->user->identity->getId()]) ?>">Tài khoản</a>
-
                                 </li>
+
                                 <li>
                                     <?php
                                     ActiveForm::begin();
