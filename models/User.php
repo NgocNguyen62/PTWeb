@@ -131,10 +131,13 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
 //        die();
         return $list;
     }
-    public function getTotalPrice(){
+    public function getTotalPrice()
+    {
         $items = $this->getCart();
         $total = 0;
-        foreach ($items as $item){
-           $total += $item[0]->price * $item[1];
+        foreach ($items as $item) {
+            $total += $item[0]->price * $item[1];
+        }
+    }
 
 }

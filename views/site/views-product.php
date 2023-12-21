@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
@@ -64,6 +65,30 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="button-bottom">
                     <button class="styled-button black-color"><strong>Thêm vào giỏ hàng</strong></button>
                     <button class="styled-button yellow-color"><strong>Mua ngay</strong></button>
+                </div>
+            </div>
+
+            <div class="related">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="heading-section">
+                            <h4>Sản phẩm liên quan </h4>
+                        </div>
+                    </div>
+                    <?php
+                    $related = $model->getProductOfCate($model->category_id, 4);
+                    ?>
+                    <?php foreach ($related as $item){ ?>
+                        <div class="col-lg-6">
+                            <a href="<?= Url::to(['products/views-product', 'id' => $item->id]) ?>">
+                                <div class="item">
+                                    <img src="<?= $item->avatar ?>" alt="" class="templatemo-item">
+                                    <h4><?= $item->name?></h4><span><?= $item->getCategory()?></span>
+                                </div>
+                            </a>
+                        </div>
+
+                    <?php } ?>
                 </div>
             </div>
         </div>
