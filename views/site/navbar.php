@@ -31,6 +31,10 @@ $cates = \app\models\base\Categories::find()->all();
         .sub-user .dropdown-item {
             text-align: center;
             justify-content: center;
+
+        }
+        .dropdown-item {
+
         }
         .user:hover .sub-user {
             display: block;
@@ -68,7 +72,7 @@ $cates = \app\models\base\Categories::find()->all();
                 </div>
                 <!-- Signin/Logup -->
                 <div id="account" class="col-5">
-                    
+
                     <ul class="nav nav-right container-fluid d-flex align-items-center">
                         <ul class="user">
                         <?php if (Yii::$app->user->isGuest) { ?>
@@ -77,9 +81,13 @@ $cates = \app\models\base\Categories::find()->all();
                         <?php } else { ?>
                             <span><?= Yii::$app->user->identity->username ?></span>
                             <ul class="sub-user">
-                                <li><?= \app\models\UserProfile::findOne(['user_id' => Yii::$app->user->identity->id]) !== null ? Html::a('Thông tin', ['user-profile/update/', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
+                                <li><?= \app\models\UserProfile::findOne(['user_id' => Yii::$app->user->identity->id]) !== null ? Html::a('Tài khoản', ['site/user-profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= Url::to(['site/change-pass', 'id' => Yii::$app->user->identity->getId()]) ?>">Đổi mật khẩu</a>
+                          </li>
                                 <li>
                                     <a class="dropdown-item" href="<?= Url::to(['user-profile/change-pass/', 'id' => Yii::$app->user->identity->getId()]) ?>">Tài khoản</a>
+
                                 </li>
                                 <li>
                                     <?php

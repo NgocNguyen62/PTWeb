@@ -4,8 +4,12 @@ namespace app\controllers;
 
 use app\models\ContactForm;
 use app\models\form\LoginForm;
+use app\models\form\ProfileForm;
+use app\models\form\UserForm;
 use app\models\Products;
 use app\models\search\ProductsSearch;
+use app\models\User;
+use app\models\UserProfile;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -181,6 +185,37 @@ class SiteController extends Controller
     public function actionCart(){
         return $this->renderAjax('cart');
     }
+
+    public  function actionUserProfile($id){
+        $profile = UserProfile::findOne(['id'=>$id]);
+        $model = new ProfileForm();
+//        var_dump($profile);
+//        die();
+        $model->setAttributes($profile->attributes);
+        $model->id = $profile->id;
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save($profile)) {
+            return $this->redirect(['user-profile', 'id' => $id]);
+        }
+
+        return $this->renderAjax('user-profile', [
+            'model' => $model,
+        ]);
+    }
+    public function actionChangePass($id) {
+        $user = User::findOne(['id'=>$id]);
+        $model = new UserForm();
+        $model->setAttributes($user->attributes);
+        $model->password = "";
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->save($user);
+            return $this->redirect(['site/user-profile', 'id' => Yii::$app->user->identity->getProfileId()]);
+        }
+
+        return $this->renderAjax('change-pass', [
+            'model' => $model,
+        ]);
+
 
     public function actionCuahang(){
         return $this->renderAjax('cuahang');
