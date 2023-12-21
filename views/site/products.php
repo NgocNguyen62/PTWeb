@@ -43,6 +43,7 @@ $products = $dataProvider->getModels();
                                         <div>
                                             <h6 class="origin-price"><?= $product->original_price ?>đ</h6>
                                         </div>
+                                        <pre>  </pre>
                                         <div>
                                             <h6 class="price-discount"><?= $product->price ?>đ</h6>
                                         </div>

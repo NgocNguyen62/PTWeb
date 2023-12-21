@@ -80,7 +80,10 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['about', 'index','homepage','products','cauchuyenthuonghieu','views-product'],
+                'actions' => ['about', 'index','homepage',
+                            'products','cauchuyenthuonghieu',
+                            'views-product','nhuongquyen','tintuc',
+                            'cuahang'],
                 'roles' => ['?','@'],
             ],
             [

@@ -12,9 +12,8 @@
 }
 
 .row-products {
-    display: flex; /* Đặt kích thước cố định cho mỗi hình ảnh */
-    margin-bottom: 30px; /* Khoảng cách giữa các hình ảnh */
-    /* flex-wrap: wrap; */
+    display: flex;
+    margin-bottom: 30px;
     width: 25%;
     justify-content: space-between;
 }
@@ -25,6 +24,7 @@
     box-sizing: border-box;
     border: 1px solid #ececec;
     height: 320px;
+    align-items: center;
 }
 
 .item {
@@ -81,10 +81,10 @@ img.img-products {
 }
 
 .price {
-    margin: 20px 40px;
+    margin: 20px 0 20px 55px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .origin-price {
