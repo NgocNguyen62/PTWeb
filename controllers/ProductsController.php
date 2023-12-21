@@ -64,6 +64,13 @@ class ProductsController extends Controller
         ]);
     }
 
+    // public function actionViewsProduct($id)
+    // {
+    //     return $this->renderAjax('views-product', [
+    //         'model' => $this->findModel($id),
+    //     ]);
+    // }
+
     /**
      * Creates a new Products model.
      * If creation is successful, the browser will be redirected to the 'view' page.

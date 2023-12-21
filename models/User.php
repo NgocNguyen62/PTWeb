@@ -125,21 +125,16 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
         $cart = \app\models\base\Cart::find()->where(['user_id'=>$this->id])->all();
         $list = [];
         foreach ($cart as $item){
-            $list[] = Products::findOne(['id'=>$item->product_id]);
+            $list[] = [Products::findOne(['id'=>$item->product_id]), $item->quantity];
         }
+//        var_dump($list);
+//        die();
         return $list;
     }
-    public function countCart(){
-        $cart = $this->getCart();
-        return count($cart);
-    }
     public function getTotalPrice(){
-        $cart = $this->getCart();
+        $items = $this->getCart();
         $total = 0;
-        foreach ($cart as $item){
-            $total += $item->price();
-        }
-        return $total;
-    }
+        foreach ($items as $item){
+           $total += $item[0]->price * $item[1];
 
 }
