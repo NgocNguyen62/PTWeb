@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 ?>
+
 <div class="card">
     <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
@@ -50,6 +51,7 @@ use yii\helpers\Html;
             <a href="#" class="btn btn-block btn-danger">
                 <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
             </a>
+
         </div>
         <!-- /.social-auth-links -->
 
@@ -60,5 +62,7 @@ use yii\helpers\Html;
             <a href="register.html" class="text-center">Register a new membership</a>
         </p>
     </div>
+
     <!-- /.login-card-body -->
 </div>
+

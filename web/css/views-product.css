@@ -1,0 +1,118 @@
+.products-view {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50%;
+    margin: 30px 10%;
+}
+
+.views-container {
+    display: flex;
+    width: 100%;
+    /* justify-content: space-between; */
+}
+
+.top-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.image-container {
+    width: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+.description-coffee {
+    width: 45%;
+}
+
+img.img-products {
+    width: 80%;
+    height: auto;
+    padding: 0;
+}
+
+  
+.discount {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    color: white; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; 
+    box-sizing: border-box;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    top: 12%;
+    left: -10px;
+    font-size: 20px;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+}
+
+.origin-price {
+    text-decoration: line-through;
+    color: #9b9b9b;
+    font-size: 20px;
+}
+
+.dong {
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.price-dong-container {
+    position: relative;
+    font-size: 20px;
+}
+
+.dong-div {
+    position: absolute;
+    bottom: 5px;
+    left: 100%;
+}
+
+.button-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.styled-button {
+    width: 49%;
+    color: white; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    border: none; 
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.black-color {
+    background-color: #000000;
+}
+
+.yellow-color {
+    background-color: #ffba00;
+}
+
+.line-title {
+    box-sizing: border-box;
+    background-color: #000000;
+    width: 40px;
+    height: 3px;
+    margin: 20px 0 20px;
+}
+
+
+  
+  

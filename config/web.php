@@ -87,8 +87,14 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['about', 'index'],
-                'roles' => ['?'],
+                'actions' => ['about', 'index','homepage','products','cauchuyenthuonghieu','views-product','cuahang','nhuongquyen'],
+                'roles' => ['?','@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['site'],
+                'actions' => ['tintuc'],
+                'roles' => ['?','@'],
             ],
             [
                 'allow' => true,
@@ -102,8 +108,26 @@ $config = [
             ],
             [
                 'allow' => true,
-                'roles' => ['?', '@'],
+                'controllers' => ['user-profile'],
+                'actions' => ['view', 'update'],
+                'roles' => ['@'],
             ],
+            [
+                'allow' => true,
+                'controllers' => ['site'],
+                'actions' => ['cart','user-profile','change-pass'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['cart'],
+//                'actions' => ['cart'],
+                'roles' => ['@'],
+            ],
+//            [
+//                'allow' => true,
+//                'roles' => ['?', '@'],
+//            ],
         ],
     ],
 ];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @link https://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
@@ -94,7 +95,7 @@ abstract class Application extends Module
     /**
      * @var string the application name.
      */
-    public $name = 'My Application';
+    public $name = 'Danh sách sản phẩm';
     /**
      * @var string the charset currently used for the application.
      */

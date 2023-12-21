@@ -12,7 +12,7 @@ use Yii;
  * @property string $password
  * @property string $role
  *
- * @property UserProfile $userProfiles
+ * @property \app\models\UserProfile $userProfile
  */
 class User extends \yii\db\ActiveRecord
 {
@@ -56,6 +56,6 @@ class User extends \yii\db\ActiveRecord
      */
     public function getUserProfiles()
     {
-        return $this->hasOne(UserProfile::class, ['user_id' => 'id']);
+        return $this->hasOne(\app\models\UserProfile::class, ['user_id' => 'id']);
     }
 }

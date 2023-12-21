@@ -75,7 +75,7 @@ class CartController extends Controller
         $model->quantity = $quantity;
         if($model->save()){
             $product = Products::findOne(['id'=>$product_id]);
-            return $this->redirect(['products/view', 'id'=>$product_id]);
+            return $this->redirect(['site/products', 'id'=>$product_id]);
         }
     }
 
@@ -136,5 +136,13 @@ class CartController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    public function actionUpdateQuantity($id, $value){
+        $model = Cart::findOne(['user_id'=>Yii::$app->user->id, 'product_id'=>$id]);
+        $model->quantity += $value;
+        if($model->save()){
+            return $this->redirect(['site/cart']);
+        }
+
     }
 }

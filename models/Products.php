@@ -55,9 +55,15 @@ class Products extends \app\models\base\Products
     public function inCart(){
         $user = Yii::$app->user->identity;
         $cart = $user->getCart();
+        $list = [];
+        foreach ($cart as $item){
+            $list[] = $item[0];
+        }
 //        var_dump($favorite);
 //        die();
-        return in_array($this, $cart);
+//        var_dump(in_array($this, $list));
+//        die();
+        return in_array($this, $list);
     }
 
 }

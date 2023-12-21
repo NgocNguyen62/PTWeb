@@ -32,8 +32,8 @@ class ProfileForm extends Model
 
     public function save($model)
     {
-        var_dump($this);
-        die();
+//        var_dump($this);
+//        die();
         if ($this->validate()) {
 //            die();
             $model->user_id = $this->user_id;

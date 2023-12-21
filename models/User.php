@@ -51,13 +51,13 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
+        // foreach (self::$users as $user) {
+        //     if ($user['accessToken'] === $token) {
+        //         return new static($user);
+        //     }
+        // }
 
-        return null;
+        // return null;
     }
 
     /**
@@ -125,9 +125,20 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
         $cart = \app\models\base\Cart::find()->where(['user_id'=>$this->id])->all();
         $list = [];
         foreach ($cart as $item){
-            $list[] = Products::findOne(['id'=>$item->product_id]);
+            $list[] = [Products::findOne(['id'=>$item->product_id]), $item->quantity];
         }
+//        var_dump($list);
+//        die();
         return $list;
+    }
+    public function getTotalPrice()
+    {
+        $items = $this->getCart();
+        $total = 0;
+        foreach ($items as $item) {
+            $total += $item[0]->price * $item[1];
+        }
+        return $total;
     }
 
     
