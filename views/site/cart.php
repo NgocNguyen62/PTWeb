@@ -19,34 +19,44 @@ $items = Yii::$app->user->identity->getCart();
     <title>Sản phẩm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/products.css" />
+    <link rel="stylesheet" href="css/cart.css" />
 </head>
 <body>
 <?php echo $this->render('navbar'); ?>
-<img src="https://trungnguyenecoffee.com/wp-content/uploads/2021/12/0f35c6493b7ccc22956d-1400x556-1.jpg" alt="" style="width: 100%">
-<div class="master-container">
-    <div class="title-box">
-        <span class="section-title-span"><strong>Cà phê đóng gói</strong></span>
-    </div>
-    <table>
-        <thead>
-        <tr>
+<div class="total-container">
+    <div class="left-cart">
+    <table class="table-cart">
+    <thead>
+        <tr class="tr-table">
             <th>Sản phẩm</th>
             <th>Giá</th>
             <th>Số lượng</th>
             <th>Tạm tính</th>
+            <th>Xóa</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
         <?php foreach ($items as $item) {
         $product = $item[0];
         $quantity = $item[1];
         ?>
         <tr>
             <td><img src="<?= $product->avatar ?>" alt="" class="img-products"> <?= $product->name?></td>
-            <td><?= $product->price ?>đ</td>
-            <td><?= $quantity ?></td>
-            <td><?= $product->price * $quantity?>đ</td>
+            <td class="product">
+                <img class="img-cart" src="<?= $product->avatar ?>" alt="">
+                <?= $product->name ?>
+            </td>
+            <td class="price" id="price-<?= $product->id ?>"><?= $product->price ?>đ</td>
+            <td>
+                <div class="quantity">
+                    <a class="btn" href="<?= Url::to(['cart/update-quantity', 'id'=>$product->id,'value'=>-1]) ?>">-</a>
+                    <?php
+                    echo $quantity;
+                    ?>
+                    <a class="btn" href="<?= Url::to(['cart/update-quantity', 'id'=>$product->id,'value'=>1]) ?>">+</a>
+                </div>
+            </td>
+            <td class="subtotal" id="subtotal-<?= $product->id ?>"><?= $product->price * $quantity ?>đ</td>
             <td>
                 <?php
                 ActiveForm::begin();
@@ -66,9 +76,12 @@ $items = Yii::$app->user->identity->getCart();
             </td>
         </tr>
         <?php } ?>
-        </tbody>
-    </table>
-    <h4>Tổng: <?= Yii::$app->user->identity->getTotalPrice() ?>đ</h4>
+    </tbody>
+</table>
+    </div>
+    <div class="right-cart">
+        <h4>Tổng: <?= Yii::$app->user->identity->getTotalPrice() ?>đ</h4>
+    </div>
 </div>
 <?php echo $this->render('footer'); ?>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -76,11 +89,5 @@ $items = Yii::$app->user->identity->getCart();
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    function addCart(id){
-        $.get('<?php echo Yii::$app->homeUrl.'products/add-to-cart' ?>', {'id': id}, function(data){
-            alert('Đã thêm vào giỏ hàng');
-        });
-    }
-</script>
+
 </body>

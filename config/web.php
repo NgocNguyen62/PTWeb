@@ -80,8 +80,8 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['about', 'index','homepage','products','cauchuyenthuonghieu'],
-                'roles' => ['?'],
+                'actions' => ['about', 'index','homepage','products','cauchuyenthuonghieu','views-product'],
+                'roles' => ['?','@'],
             ],
             [
                 'allow' => true,
@@ -95,8 +95,20 @@ $config = [
             ],
             [
                 'allow' => true,
+                'controllers' => ['user-profile'],
+                'actions' => ['view', 'update'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
                 'controllers' => ['site'],
                 'actions' => ['cart','user-profile','change-pass'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['cart'],
+//                'actions' => ['cart'],
                 'roles' => ['@'],
             ],
 //            [

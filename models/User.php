@@ -51,13 +51,13 @@ class User extends \app\models\base\User implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
+        // foreach (self::$users as $user) {
+        //     if ($user['accessToken'] === $token) {
+        //         return new static($user);
+        //     }
+        // }
 
-        return null;
+        // return null;
     }
 
     /**

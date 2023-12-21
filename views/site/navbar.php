@@ -34,7 +34,7 @@ $cates = \app\models\base\Categories::find()->all();
 
         }
         .dropdown-item {
-            text-decoration: none;
+
         }
         .user:hover .sub-user {
             display: block;
@@ -84,6 +84,10 @@ $cates = \app\models\base\Categories::find()->all();
                                 <li><?= \app\models\UserProfile::findOne(['user_id' => Yii::$app->user->identity->id]) !== null ? Html::a('Tài khoản', ['site/user-profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
                                 <li>
                                     <a class="dropdown-item" href="<?= Url::to(['site/change-pass', 'id' => Yii::$app->user->identity->getId()]) ?>">Đổi mật khẩu</a>
+                          </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= Url::to(['user-profile/change-pass/', 'id' => Yii::$app->user->identity->getId()]) ?>">Tài khoản</a>
+
                                 </li>
                                 <li>
                                     <?php
@@ -142,7 +146,7 @@ $cates = \app\models\base\Categories::find()->all();
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nhượng quyền</a>
+                            <a class="nav-link" href="<?php echo Url::to(['site/nhuongquyen']); ?>">Nhượng quyền</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= Url::to(['site/products']) ?>">Sản phẩm</a>
@@ -151,10 +155,10 @@ $cates = \app\models\base\Categories::find()->all();
                             <a class="nav-link" href="#">Khuyến mãi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Tin tức</a>
+                            <a class="nav-link" href="<?php echo Url::to(['site/tintuc']); ?>">Tin tức</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cửa hàng</a>
+                            <a class="nav-link" href="<?php echo Url::to(['site/cuahang']); ?>">Cửa hàng</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Tuyển dụng</a>
