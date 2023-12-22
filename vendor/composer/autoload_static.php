@@ -12,8 +12,8 @@ class ComposerStaticInit6967eaa063fe7b1643446f2e1fcf6616
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
-        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
@@ -42,6 +42,10 @@ class ComposerStaticInit6967eaa063fe7b1643446f2e1fcf6616
         array (
             'hail812\\adminlte\\widgets\\' => 25,
             'hail812\\adminlte3\\' => 18,
+        ),
+        'd' => 
+        array (
+            'dosamigos\\chartjs\\' => 18,
         ),
         'c' => 
         array (
@@ -148,6 +152,10 @@ class ComposerStaticInit6967eaa063fe7b1643446f2e1fcf6616
         'hail812\\adminlte3\\' => 
         array (
             0 => __DIR__ . '/..' . '/hail812/yii2-adminlte3/src',
+        ),
+        'dosamigos\\chartjs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-chartjs-widget/src',
         ),
         'cebe\\markdown\\' => 
         array (

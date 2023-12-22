@@ -63,39 +63,74 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <p><?= $model->description ?></p>
                 <div class="button-bottom">
-                    <button class="styled-button black-color"><strong>Thêm vào giỏ hàng</strong></button>
-                    <button class="styled-button yellow-color"><strong>Mua ngay</strong></button>
-                </div>
-            </div>
-
-            
-        </div>
-
-        
-    </div>
-    <div class="related">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="heading-section">
-                            <h4>Sản phẩm liên quan </h4>
-                        </div>
-                    </div>
                     <?php
-                    $related = $model->getProductOfCate($model->category_id, 4);
+                        if(!Yii::$app->user->isGuest && !$model->inCart()){
+                            echo Html::a(
+                                'Thêm vào giỏ hàng',
+                                ['cart/create', 'product_id' => $model->id, 'quantity' => 1],
+                                ['class' => "styled-button black-color"]
+                            );
+                        } else {
+                            echo Html::a(
+                                'Thêm vào giỏ hàng',
+                                ['cart/add', 'product_id' => $model->id, 'quantity' => 1],
+                                ['class' => "styled-button black-color"]
+                            );
+                        }
                     ?>
-                    <?php foreach ($related as $item){ ?>
-                        <div class="col-lg-6">
-                            <a href="<?= Url::to(['products/views-product', 'id' => $item->id]) ?>">
-                                <div class="item">
-                                    <img src="<?= $item->avatar ?>" alt="" class="templatemo-item">
-                                    <h4><?= $item->name?></h4><span><?= $item->getCategory()?></span>
+                    <!-- <button class="styled-button black-color"><strong>Thêm vào giỏ hàng</strong></button> -->
+                    <!-- <button class="styled-button yellow-color"><strong>Mua ngay</strong></button> -->
+                    <?php
+                        echo Html::a(
+                            'Mua ngay',
+                            ['cart/add', 'product_id' => $model->id, 'quantity' => 1],
+                            ['class' => "styled-button yellow-color"]
+                        );
+                    ?>
+                </div>
+            </div>          
+        </div>
+    </div>
+    <div class="description">
+        <div class="line"></div>
+        <div class="box-description"><strong>Mô tả</strong></div>
+        <p><?= $model->description ?></p>
+    </div> 
+    <div class="product-same">
+        <div class="line"></div>
+        <h4><strong>Sản phẩm tương tự</strong></h4>
+        <div class="product-container">
+            <?php
+                $related = $model->getProductOfCate($model->category_id, 4);
+                ?>
+                <?php foreach ($related as $item){ ?>
+                    <div class="row-products">
+                        <div class="col-products">
+                            <a class="width-a" href="<?= Url::to(['products/views-product', 'id' => $item->id]) ?>">
+                                <div class="image-container2">
+                                    <div class="item2">
+                                        <img class="img-products2" src="<?= $item->avatar ?>" alt="">
+                                        <div class="discount2"><strong>-<?= $item->discount ?>%</strong></div>
+                                    </div>
+                                    <span class="name-line"><?= $item->name?></span>
+                                    <div class="price2">
+                                        <div>
+                                            <h6 class="origin-price2"><?= $item->original_price ?>đ</h6>
+                                        </div>
+                                        <pre>  </pre>
+                                        <div>
+                                            <h6 class="price-discount2"><?= $item->price ?>đ</h6>
+                                        </div>
+                                    </div>
                                 </div>
                             </a>
                         </div>
+                    </div>
 
-                    <?php } ?>
-                </div>
-            </div>
+                <?php } 
+            ?>
+        </div>
+    </div> 
 </div>
 <?php echo $this->render('footer'); ?>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">

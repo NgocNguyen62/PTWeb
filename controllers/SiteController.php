@@ -217,6 +217,9 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    public function actionThanhtoan($id){
+        return $this->renderAjax('thanhtoan');
+    }
 
 
     public function actionCuahang(){

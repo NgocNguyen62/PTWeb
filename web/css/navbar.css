@@ -96,4 +96,39 @@ h2 {
   padding-bottom: 140px;
 }
 
+.sub-user{
+  position: absolute;
+  /* width: 150px; */
+  display: none;
+  border-radius: 1rem;
+  background-color: #f0f0f0;
+  align-items: center;
+  /* padding-right: 40px; */
+  list-style: none;
+}
 
+.sub-user .dropdown-item {
+  /* text-align: center; */
+  justify-content: center;
+}
+.user:hover .sub-user {
+  display: block;
+  position: absolute;
+  z-index: 100;
+}
+.user{
+  text-decoration: none;
+  margin: 10px;
+  list-style: none;
+}
+
+.user-a, .width-user {
+  width: 100px;
+  color: #000000;
+}
+
+.dropdown-menu.show {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

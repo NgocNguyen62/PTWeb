@@ -16,38 +16,7 @@ $cates = \app\models\base\Categories::find()->all();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/navbar.css" />
-    <style>
-        .sub-user{
-            position: absolute;
-            width: 150px;
-            /*border: 1px solid #e75e8d;*/
-            /*padding: 10px 0 10px 20px;*/
-            display: none;
-            border-radius: 1rem;
-            background-color: #f0f0f0;
-            align-items: center;
-            padding-right: 40px;
-        }
-        .sub-user .dropdown-item {
-            text-align: center;
-            justify-content: center;
-
-        }
-        .dropdown-item {
-
-        }
-        .user:hover .sub-user {
-            display: block;
-            position: absolute;
-            z-index: 100;
-        }
-        .user{
-            text-decoration: none;
-            margin: 10px;
-        }
-    </style>
 </head>
-
 <body>
     <header class="header has-sticky sticky-jump fixed">
         <div class="wrapper">
@@ -72,14 +41,14 @@ $cates = \app\models\base\Categories::find()->all();
                 </div>
                 <!-- Signin/Logup -->
                 <div id="account" class="col-5">
-
+                    
                     <ul class="nav nav-right container-fluid d-flex align-items-center">
                         <ul class="user">
                         <?php if (Yii::$app->user->isGuest) { ?>
-                            <li class='col-6'>
-                            <a href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> Đăng nhập </a>
+                            <li>
+                            <a class="user-a" href="<?= Url::to(['site/login']) ?>"><i class="fa fa-user white"></i> <span>Đăng nhập </span></a>
                         <?php } else { ?>
-                            <span><?= Yii::$app->user->identity->username ?></span>
+                            <span class="width-user"><?= Yii::$app->user->identity->username ?></span>
                             <ul class="sub-user">
                                 <li><?= \app\models\UserProfile::findOne(['user_id' => Yii::$app->user->identity->id]) !== null ? Html::a('Tài khoản', ['site/user-profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
                                 <li>
@@ -102,6 +71,11 @@ $cates = \app\models\base\Categories::find()->all();
                                     ActiveForm::end();
                                     ?>
                                 </li>
+                                <?php if (Yii::$app->user->can('admin')) { ?>
+                                    <li>
+                                        <a class="dropdown-item" href="<?= Url::to(['site/index']) ?>">Quản lý</a>
+                                    </li>
+                                <?php } ?>
 
                             </ul>
                         <?php } ?>

@@ -3,13 +3,24 @@
         'name' => 'yiisoft/yii2-app-basic',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b1db3468add5d339779c5611ca94641fca09c3be',
+
+        'reference' => 'ea3daa69e0ef67cbfdd81bf11f827ff84ee0be3c',
+
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        '2amigos/yii2-chartjs-widget' => array(
+            'pretty_version' => '2.1.3',
+            'version' => '2.1.3.0',
+            'reference' => 'b144a4ebd923872a7263c980f8afe2e212378275',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../2amigos/yii2-chartjs-widget',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'almasaeed2010/adminlte' => array(
             'pretty_version' => 'v3.2.0',
             'version' => '3.2.0.0',
@@ -34,6 +45,15 @@
             'reference' => 'cb021439c683d9805e2864c58095b92d405e9b11',
             'type' => 'bower-asset',
             'install_path' => __DIR__ . '/../bower-asset/bootstrap',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'bower-asset/chartjs' => array(
+            'pretty_version' => 'v2.9.4',
+            'version' => '2.9.4.0',
+            'reference' => '9bd4cf82fda9f50a5fb50b72843e06ab88124278',
+            'type' => 'bower-asset',
+            'install_path' => __DIR__ . '/../bower-asset/chartjs',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -814,7 +834,9 @@
         'yiisoft/yii2-app-basic' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b1db3468add5d339779c5611ca94641fca09c3be',
+
+            'reference' => 'ea3daa69e0ef67cbfdd81bf11f827ff84ee0be3c',
+
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
