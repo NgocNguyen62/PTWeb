@@ -8,12 +8,12 @@ use yii\widgets\DetailView;
 
 // $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Hồ sơ người dùng', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="user-profile-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<!--    <h1>--><?php //= Html::encode($this->title) ?><!--</h1>-->
 
     
 
@@ -23,14 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
     </h1>
     <div class="contentform">
       <div class="leftcontact">
-        <div class="form-group">
-          <p>ID </p>
-          <span class="icon-case"><i class="fa fa-tag icon-style"> </i></span>
-          <div class="form-control" style="margin-left: 40px">
-            <?php echo $model->user_id ?>
-          </div>
-          <div class="validation"></div>
-        </div>
+<!--        <div class="form-group">-->
+<!--          <p>ID </p>-->
+<!--          <span class="icon-case"><i class="fa fa-tag icon-style"> </i></span>-->
+<!--          <div class="form-control" style="margin-left: 40px">-->
+<!--            --><?php //echo $model->user_id ?>
+<!--          </div>-->
+<!--          <div class="validation"></div>-->
+<!--        </div>-->
 
         <div class="form-group">
           <p>Họ  </p>
