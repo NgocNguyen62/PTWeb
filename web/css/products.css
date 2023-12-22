@@ -67,6 +67,8 @@ img.img-products {
 
 .hidden-button {
     display: none;
+    position: absolute;
+    top: 50%;
 }
 
 .col-products:hover {
@@ -135,4 +137,14 @@ a:hover {
 .home-coffee:hover {
     color: #1f1e1e;
     text-decoration: none;
+}
+
+.width-a:hover {
+    text-decoration: none;
+    color: #000000;
+}
+
+.icon-cart {
+    width: 40px;
+    height: 35px;
 }

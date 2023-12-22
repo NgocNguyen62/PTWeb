@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\search\ProductsSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
@@ -45,9 +46,25 @@ $cates = \app\models\base\Categories::find()->all();
                                         <div>
                                             <h6 class="origin-price"><?= $product->original_price ?>đ</h6>
                                         </div>
+                                        <pre> </pre>
                                         <div>
                                             <h6 class="price-discount"><?= $product->price ?>đ</h6>
                                         </div>
+                                    </div>
+                                    <div class="hidden-button">
+                                        <?php
+                                            if(!Yii::$app->user->isGuest && !$product->inCart()){
+                                                echo Html::a(
+                                                    Html::img('https://img.pikbest.com/png-images/shopping-cart-icon---vector-template---transparent-background_1794341.png!sw800', ['class' => 'icon-cart']),
+                                                    ['cart/create', 'product_id' => $product->id, 'quantity'=>1]
+                                                );
+                                            } else{
+                                                echo Html::a(
+                                                    Html::img('https://img.pikbest.com/png-images/shopping-cart-icon---vector-template---transparent-background_1794341.png!sw800', ['class' => 'icon-cart']),
+                                                    ['cart/add', 'product_id' => $product->id, 'quantity'=>1]
+                                                );
+                                            }
+                                        ?>
                                     </div>
                     </div>
                 </a>

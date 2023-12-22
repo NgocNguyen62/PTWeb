@@ -79,7 +79,9 @@ $items = Yii::$app->user->identity->getCart();
         </table>
     </div>
     <div class="right-cart">
+        <div class="title-purchase"><strong>CỘNG GIỎ HÀNG</strong></div>
         <h4>Tổng: <?= Yii::$app->user->identity->getTotalPrice() ?>đ</h4>
+        <a class="button-purchase" href="<?= Url::to(['site/thanhtoan','id'=>Yii::$app->user->identity->id]) ?>"><strong>Tiến hành thanh toán</strong></a>
     </div>
 </div>
 <?php echo $this->render('footer'); ?>

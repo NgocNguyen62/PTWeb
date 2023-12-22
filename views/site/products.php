@@ -43,32 +43,32 @@ $products = $dataProvider->getModels();
                                         <div>
                                             <h6 class="origin-price"><?= $product->original_price ?>đ</h6>
                                         </div>
-                                        <pre>  </pre>
+                                        <pre> </pre>
                                         <div>
                                             <h6 class="price-discount"><?= $product->price ?>đ</h6>
                                         </div>
+                                        
+                                    </div>
+                                    <div class="hidden-button">
+                                        <?php
+                                            if(!Yii::$app->user->isGuest && !$product->inCart()){
+                                                echo Html::a(
+                                                    Html::img('https://img.pikbest.com/png-images/shopping-cart-icon---vector-template---transparent-background_1794341.png!sw800', ['class' => 'icon-cart']),
+                                                    ['cart/create', 'product_id' => $product->id, 'quantity'=>1]
+                                                );
+                                            } else{
+                                                echo Html::a(
+                                                    Html::img('https://img.pikbest.com/png-images/shopping-cart-icon---vector-template---transparent-background_1794341.png!sw800', ['class' => 'icon-cart']),
+                                                    ['cart/add', 'product_id' => $product->id, 'quantity'=>1]
+                                                );
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                                 
                             </a>
-<!--                            <div class="hidden-button">-->
-<!--                                --><?php //=Html::input('submit','submit','Add',[
-//                                    'class'=>'button add',
-//
-//                                ])?>
-<!--                            </div>-->
-<!--                            --><?php //$form = ActiveForm::begin(['class'=>'form-horizontal', 'action'=>Url::toRoute(['products/add-to-cart','id'=>$product->id])]); ?>
-<!--                            --><?php //ActiveForm::end(); ?>
-                            <?php
-                            if(!Yii::$app->user->isGuest && !$product->inCart()){
-                                echo Html::a('Add to cart', ['cart/create', 'product_id' => $product->id, 'quantity'=>1]);
-                            } else{
-//                                die();
-                                echo Html::a('Add to cart', ['cart/add', 'product_id' => $product->id, 'quantity'=>1]);
-                            }
-                            ?>
                         </div>
-                        </div>
+                    </div>
                 <?php }?>
             
         </div>

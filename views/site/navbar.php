@@ -71,6 +71,11 @@ $cates = \app\models\base\Categories::find()->all();
                                     ActiveForm::end();
                                     ?>
                                 </li>
+                                <?php if (Yii::$app->user->can('admin')) { ?>
+                                    <li>
+                                        <a class="dropdown-item" href="<?= Url::to(['site/index']) ?>">Quản lý</a>
+                                    </li>
+                                <?php } ?>
 
                             </ul>
                         <?php } ?>
