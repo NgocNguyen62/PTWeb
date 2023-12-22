@@ -93,6 +93,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-symfonymailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/omnilight/yii2-shopping-cart" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/2amigos/yii2-chartjs-widget" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bower-asset/chartjs" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
