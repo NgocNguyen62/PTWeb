@@ -10,26 +10,134 @@ use yii\widgets\ActiveForm;
 
 <div class="user-profile-form">
 
+
+
+
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <!--    --><?php //= $form->field($model, 'user_id')->textInput() ?>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- <div class="logo"></div> -->
+    <div class="login-block">
+        <h1>Tạo mới hồ sơ người dùng</h1>
+        <label class="control-label2" for="userform-username2">Họ</label>
 
-    <?= $form->field($model, 'firstName')->textInput(['maxlength' => true])->label('Họ') ?>
+        <?= $form->field($model, 'firstName')->textInput(['maxlength' => true])->label('Họ') ?>
+        <label class="control-label2" for="userform-username2">Tên</label>
 
-    <?= $form->field($model, 'lastName')->textInput(['maxlength' => true])->label('Tên') ?>
+        <?= $form->field($model, 'lastName')->textInput(['maxlength' => true])->label('Tên') ?>
+        <label class="control-label2" for="userform-username2">Số điện thoại</label>
 
-    <?= $form->field($model, 'phoneNum')->textInput(['maxlength' => true])->label('Số điện thoại') ?>
+        <?= $form->field($model, 'phoneNum')->textInput(['maxlength' => true])->label('Số điện thoại') ?>
+        <label class="control-label2" for="userform-username2">Email</label>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+        <label class="control-label2" for="userform-username2">Địa chỉ</label>
 
-    <!--    --><?php //= $form->field($model, 'gender')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+
+        <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+        <div class="form-group">
+            <?= Html::submitButton('Lưu', ['class' => 'btn btn-success']) ?>
+        </div>
     </div>
-
     <?php ActiveForm::end(); ?>
 
+    <style>
+        .control-label{
+        display: none;
+    }
+        body {
+            background: url('http://i.imgur.com/Eor57Ae.jpg') no-repeat fixed center center;
+            background-size: cover;
+            font-family: Montserrat;
+        }
+
+        .logo {
+            width: 213px;
+            height: 36px;
+            background: url('http://i.imgur.com/fd8Lcso.png') no-repeat;
+            margin: 30px auto;
+        }
+
+        .login-block {
+            width: 320px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            border-top: 5px solid #ff656c;
+            margin: 0 auto;
+        }
+
+        .login-block h1 {
+            text-align: center;
+            color: #000;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .login-block input {
+            width: 100%;
+            height: 42px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-family: Montserrat;
+            padding: 0 20px 0 50px;
+            outline: none;
+        }
+
+        .login-block input#username {
+            background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
+            background-size: 16px 80px;
+        }
+
+        .login-block input#username:focus {
+            background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px bottom no-repeat;
+            background-size: 16px 80px;
+        }
+
+        .login-block input#password {
+            background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
+            background-size: 16px 80px;
+        }
+
+        .login-block input#password:focus {
+            background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px bottom no-repeat;
+            background-size: 16px 80px;
+        }
+
+        .login-block input:active,
+        .login-block input:focus {
+            border: 1px solid #ff656c;
+        }
+
+        .login-block button {
+            width: 100%;
+            height: 40px;
+            background: #ff656c;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #e15960;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-family: Montserrat;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .login-block button:hover {
+            background: #ff7b81;
+        }
+    </style>
+
+
+
+
+
+
 </div>
-
-

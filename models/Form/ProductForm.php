@@ -75,8 +75,8 @@ class ProductForm extends Model {
                 return true;
             }
             } else {
-                var_dump($this->errors);
-                die();
+                // var_dump($this->errors);
+                // die();
             }
             return false;
 

@@ -16,6 +16,7 @@ class UserForm extends Model
     //
     //    public $lastName;
     //    public $phoneNum;
+    public $password_repeat;
     public $role;
     public $profile_id;
 

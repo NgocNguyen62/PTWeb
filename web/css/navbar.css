@@ -108,7 +108,7 @@ h2 {
 }
 
 .sub-user .dropdown-item {
-  text-align: center;
+  /* text-align: center; */
   justify-content: center;
 }
 .user:hover .sub-user {
