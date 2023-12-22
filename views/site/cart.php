@@ -41,7 +41,6 @@ $items = Yii::$app->user->identity->getCart();
         $quantity = $item[1];
         ?>
         <tr>
-            <td><img src="<?= $product->avatar ?>" alt="" class="img-products"> <?= $product->name?></td>
             <td class="product">
                 <img class="img-cart" src="<?= $product->avatar ?>" alt="">
                 <?= $product->name ?>
@@ -81,6 +80,7 @@ $items = Yii::$app->user->identity->getCart();
     </div>
     <div class="right-cart">
         <h4>Tổng: <?= Yii::$app->user->identity->getTotalPrice() ?>đ</h4>
+        <a href="<?= Url::to(['site/thanhtoan','id'=>Yii::$app->user->identity->id]) ?>">Thanh toán</a>
     </div>
 </div>
 <?php echo $this->render('footer'); ?>
