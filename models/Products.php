@@ -65,6 +65,17 @@ class Products extends \app\models\base\Products
 //        die();
         return in_array($this, $list);
     }
+    public static function getPercentCate(){
+        $total = Products::find()->count();
+        $cates = Categories::find()->all();
+        $result = [];
+        foreach ($cates as $cate){
+            $products = Products::find()->where(['category_id' => $cate->id])->count();
+            $result[] = $products/$total*100;
+        }
+        return $result;
+    }
+
 
 }
 

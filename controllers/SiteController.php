@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\base\Categories;
 use app\models\ContactForm;
 use app\models\form\LoginForm;
 use app\models\form\ProfileForm;
@@ -75,7 +76,7 @@ class SiteController extends Controller
         //        ]);
 
         //        $dataProvider->pagination = $pagination;
-        return $this->render('index', ['dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
+        return $this->render('index');
     }
 
     /**
@@ -235,5 +236,8 @@ class SiteController extends Controller
 
     public function actionFooter(){
         return $this->renderAjax('footer');
+    }
+    public function actionChart(){
+        return $this->renderAjax('chart');
     }
 }

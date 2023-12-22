@@ -1,55 +1,54 @@
 <?php
-
 /** @var yii\web\View $this */
-
-/** @var app\models\search\ProductsSearch $searchModel */
-/** @var yii\data\ActiveDataProvider $dataProvider */
-
-use app\models\base\Categories;
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\widgets\ActiveForm;
-
-$products = $dataProvider->getModels();
+$this->title = 'Quản lý';
+$this->params['breadcrumbs'] = [['label' => $this->title]];
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<div class="container-fluid">
+    <div class="row">
+        <h3>Tài khoản</h3>
+        <div class="col-12 col-sm-6 col-md-6">
+            <?= \hail812\adminlte\widgets\InfoBox::widget([
+                'text' => 'Admin',
+                'number' => \app\models\User::find()->where(['role' => 'admin'])->count(),
+                'icon' => 'fas fa-cog',
+            ]) ?>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6">
+            <?= \hail812\adminlte\widgets\InfoBox::widget([
+                'text' => 'User',
+                'number' => \app\models\User::find()->where(['role' => 'user'])->count(),
+                'icon' => 'fas fa-user',
+            ]) ?>
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="col-12 col-sm-6 col-md-6">
+                <?= \hail812\adminlte\widgets\InfoBox::widget([
+                    'text' => 'Tổng số tài khoản',
+                    'number' => \app\models\User::find()->count(),
+                    'theme'=>'success',
+                    'icon' => 'fa fa-user',
+                ]) ?>
+            </div>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style>
-        .row{
-            display: grid;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <?php foreach ($products as $product) {?>
-                    <div class="col-lg-3 col-sm-6">
-                        <a href="<?= Url::to(['products/view', 'id' => $product->id]) ?>">
-                            <div class="item">
-                                <img src="<?= $product->avatar ?>" alt="">
-                                <h4><?= $product->name ?>
-                                <br><span><?= Categories::findOne(['id' => $product->category_id])->name ?></span></h4>
-
-                            </div>
-                        </a>
-
-                        <?php
-                        if(!Yii::$app->user->isGuest && !$product->inCart()){
-                            echo Html::a('Add to cart', ['cart/create', 'product_id' => $product->id, 'quantity'=>1]);
-                        } else{
-                            echo Html::a('Add to cart', ['cart/add', 'product_id' => $product->id, 'quantity'=>1]);
-                        }
-                        ?>
-                    </div>
-            <?php }?>
         </div>
     </div>
+
+
+    <div class="row">
+        <h3>Sản phẩm</h3>
+        <div class="col-md-4 col-sm-6 col-12">
+            <?php echo $this->render('chart'); ?>
+        </div>
+        <div class="col-md-4 col-sm-6 col-12">
+            <?php $smallBox = \hail812\adminlte\widgets\SmallBox::begin([
+                'title' => \app\models\Products::find()->count() . ' sản phẩm',
+                'text' => \app\models\base\Categories::find()->count() . ' phân loại',
+                'icon' => 'fas fa-shopping-cart',
+            ]) ?>
+        </div>
+
+    </div>
+<<<<<<< Updated upstream
     <script>
         function addCart(id){
             $.get('<?php echo Yii::$app->homeUrl.'products/add-to-cart' ?>', {'id': id}, function(data){
@@ -58,3 +57,8 @@ $products = $dataProvider->getModels();
         }
     </script>
 </body>
+=======
+
+<!-
+</div>
+>>>>>>> Stashed changes

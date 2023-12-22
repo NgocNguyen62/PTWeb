@@ -3,13 +3,38 @@
         'name' => 'yiisoft/yii2-app-basic',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
+<<<<<<< Updated upstream
         'reference' => '46a185b71168da0a65b77d2f6119c6f443dd5c81',
+=======
+        'reference' => '0bd89b5e4c86882c729f7701d51f4badc3eb1d7d',
+>>>>>>> Stashed changes
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+<<<<<<< Updated upstream
+=======
+        '2amigos/yii2-chartjs-widget' => array(
+            'pretty_version' => '2.1.3',
+            'version' => '2.1.3.0',
+            'reference' => 'b144a4ebd923872a7263c980f8afe2e212378275',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../2amigos/yii2-chartjs-widget',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'almasaeed2010/adminlte' => array(
+            'pretty_version' => 'v3.2.0',
+            'version' => '3.2.0.0',
+            'reference' => 'bd4d9c72931f1dd28601b6bfb387554a381ad540',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../almasaeed2010/adminlte',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+>>>>>>> Stashed changes
         'behat/gherkin' => array(
             'pretty_version' => 'v4.9.0',
             'version' => '4.9.0.0',
@@ -25,6 +50,15 @@
             'reference' => 'cb021439c683d9805e2864c58095b92d405e9b11',
             'type' => 'bower-asset',
             'install_path' => __DIR__ . '/../bower-asset/bootstrap',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'bower-asset/chartjs' => array(
+            'pretty_version' => 'v2.9.4',
+            'version' => '2.9.4.0',
+            'reference' => '9bd4cf82fda9f50a5fb50b72843e06ab88124278',
+            'type' => 'bower-asset',
+            'install_path' => __DIR__ . '/../bower-asset/chartjs',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -776,9 +810,15 @@
             'dev_requirement' => false,
         ),
         'yiisoft/yii2-app-basic' => array(
+<<<<<<< Updated upstream
             'pretty_version' => '2.0.49',
             'version' => '2.0.49.0',
             'reference' => NULL,
+=======
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '0bd89b5e4c86882c729f7701d51f4badc3eb1d7d',
+>>>>>>> Stashed changes
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

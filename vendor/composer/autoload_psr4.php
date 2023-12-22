@@ -14,6 +14,12 @@ return array(
     'yii\\composer\\' => array($vendorDir . '/yiisoft/yii2-composer'),
     'yii\\bootstrap5\\' => array($vendorDir . '/yiisoft/yii2-bootstrap5/src'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
+<<<<<<< Updated upstream
+=======
+    'hail812\\adminlte\\widgets\\' => array($vendorDir . '/hail812/yii2-adminlte-widgets/src'),
+    'hail812\\adminlte3\\' => array($vendorDir . '/hail812/yii2-adminlte3/src'),
+    'dosamigos\\chartjs\\' => array($vendorDir . '/2amigos/yii2-chartjs-widget/src'),
+>>>>>>> Stashed changes
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
