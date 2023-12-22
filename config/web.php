@@ -109,7 +109,7 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['cart','user-profile','change-pass'],
+                'actions' => ['cart','user-profile','change-pass','thanhtoan'],
                 'roles' => ['@'],
             ],
             [
