@@ -39,6 +39,7 @@ $items = Yii::$app->user->identity->getCart();
             <?php foreach ($items as $item) {
             $product = $item[0];
             $quantity = $item[1];
+    
             ?>
             <tr>
                 <td class="product">

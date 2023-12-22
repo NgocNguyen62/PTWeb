@@ -103,6 +103,18 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionRegister()
+    {
+        $model = new UserForm();
+        $user = new User();
+        if ($model->load($this->request->post()) && $model->save($user)) {
+            return $this->renderAjax('homepage');
+        }
+
+        return $this->renderAjax('register', [
+            'model' => $model,
+        ]);
+    }
     /**
      * Logout action.
      *
@@ -147,10 +159,6 @@ class SiteController extends Controller
         return $this->renderAjax('homepage');
     }
 
-    public function actionLogin2()
-    {
-        return $this->render('login2');
-    }
 
     public function actionCauchuyenthuonghieu(){
         return $this->renderAjax('cauchuyenthuonghieu');
@@ -241,4 +249,6 @@ class SiteController extends Controller
     public function actionFooter(){
         return $this->renderAjax('footer');
     }
+
+    
 }

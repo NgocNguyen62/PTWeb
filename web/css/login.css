@@ -19,6 +19,7 @@
     background-color: black;
     border-color: black;
     padding: 10px 50px;
+    width: 100%;
 }
 
 .btn.btn-primary:hover {
@@ -29,4 +30,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.register {
+    margin-top: 30px;
 }

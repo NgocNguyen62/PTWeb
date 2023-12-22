@@ -19,13 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="container-fluid ps-md-0">
   <div class="row g-0">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
-    <!-- $imagePath = '../../web/products/ten_file_anh.jpg'; -->
-    <!-- <img src="<?php echo '../../web/products/ten_file_anh.jpg'; ?>" alt="Ảnh sản phẩm"> -->
+    <div class="d-none d-md-flex col-md-4 col-lg-6">
 
 
-        <img src="show-image" ưidth = "25px" height = "400px"
-        src="<?php echo Yii::$app->homeUrl.'../../web/products'.$model->avatar?>" alt="">
+        <img style="width: 100%; height: 80%" src="<?= $model->avatar?>" alt="">
     </div>
     <div class="col-md-8 col-lg-6">
       <div class="login d-flex align-items-center py-5">
@@ -35,40 +32,18 @@ $this->params['breadcrumbs'][] = $this->title;
               <h3 class="login-heading mb-4">Thông tin sản phẩm</h3>
 
               <!-- Sign In Form -->
-              <form>
-                <div class="form-floating mb-3">
-                  <label for="floatingInput">ID: </label>
+              <?= DetailView::widget([
+                      'model' => $model,
+                      'attributes' => [
+                          'name',
+                          'category_id',
+                          'description:ntext',
+                          'original_price',
+                          'discount',
+                          'price',
+                      ],
+                  ]) ?>
 
-                  <input type="email" class="form-control" id="floatingInput" placeholder=<?php echo $model->id ?>>
-                </div>
-                
-                <div class="form-floating mb-3">
-                                    <label for="floatingPassword">Tên danh mục: </label>
-
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="<?php echo $model->category->name?>">
-                </div>
-
-                <div class="form-floating mb-3">
-                                    <label for="floatingPassword">Mô tả sản phẩm: </label>
-
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="<?php echo $model->description?>">
-                </div>
-
-                <div class="form-floating mb-3">
-                                    <label for="floatingPassword">Trạng thái: </label>
-
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="<?php echo $model->status?>">
-                </div>
-
-
-
-
-
-
-
-                
-
-              </form>
             </div>
           </div>
         </div>
