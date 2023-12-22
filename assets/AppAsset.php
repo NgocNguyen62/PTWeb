@@ -19,11 +19,20 @@ class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
+    // public $css = [
+    //     'css/site.css',
+    // ];
+    // public $js = [
+    // ];
     public $css = [
-        'css/site.css',
+        'https://adminlte.io/themes/v3/assets/css/adminlte.css',
+        // Các tệp CSS khác của AdminLTE 3 (nếu có)
     ];
     public $js = [
+        'https://adminlte.io/themes/v3/assets/js/adminlte.js',
+        // Các tệp JavaScript khác của AdminLTE 3 (nếu có)
     ];
+
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap5\BootstrapAsset'
