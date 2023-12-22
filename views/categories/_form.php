@@ -120,6 +120,8 @@ use yii\widgets\ActiveForm;
         .login-block button:hover {
             background: #ff7b81;
         }
+
+        
     </style>
 
 
