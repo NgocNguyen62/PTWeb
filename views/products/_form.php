@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
     <label class="control-label2" for="userform-username2">Trạng thái</label>
 
     <?= $form->field($model, 'status')->dropDownList(
-        \app\models\Products::getStatus(), ['prompt' => 'Select']
+        \app\models\Products::getStatus(), ['prompt' => 'Chọn trạng thái']
     ) ?>
         <label class="control-label2" for="userform-username2">Hình Ảnh</label>
 
