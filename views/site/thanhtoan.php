@@ -83,7 +83,7 @@ $user = \app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->
                     <?php } ?>
                     <tr>
                     <td class="total-thanhtoan">Tổng</td>
-                    <td class="subtotal total-thanhtoan" id="subtotal-<?= $product->id ?>"><?= $product->price * $quantity ?>đ</td>
+                    <td class="subtotal total-thanhtoan" id="subtotal"><?= Yii::$app->user->identity->getTotalPrice() ?>đ</td>
                     </tr>
                     </tbody>
                 </table>

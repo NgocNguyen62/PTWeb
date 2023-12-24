@@ -132,3 +132,22 @@ h2 {
   padding: 0;
   margin: 0;
 }
+
+.bag-icon {
+  position: relative;
+}
+
+.icon-cart {
+  position: absolute;
+  top: -12px;
+  left: 25px;
+  box-sizing: border-box;
+  border-radius: 100%;
+  background-color: #000000;
+  color: #cccccc;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
+}
