@@ -52,6 +52,9 @@ $cates = \app\models\base\Categories::find()->all();
                             <ul class="sub-user">
                                 <li><?= \app\models\UserProfile::findOne(['user_id' => Yii::$app->user->identity->id]) !== null ? Html::a('Tài khoản', ['site/user-profile', 'id' => Yii::$app->user->identity->getProfileId()], ['class' => 'dropdown-item']) : "" ?></li>
                                 <li>
+                                    <a class="dropdown-item" href="<?= Url::to(['site/history']) ?>">Đơn hàng của tôi</a>
+                                </li>
+                                <li>
                                     <a class="dropdown-item" href="<?= Url::to(['site/change-pass', 'id' => Yii::$app->user->identity->getId()]) ?>">Đổi mật khẩu</a>
                                 </li>
 
@@ -76,6 +79,7 @@ $cates = \app\models\base\Categories::find()->all();
                                         <a class="dropdown-item" href="<?= Url::to(['site/index']) ?>">Quản lý</a>
                                     </li>
                                 <?php } ?>
+
 
                             </ul>
                         <?php } ?>

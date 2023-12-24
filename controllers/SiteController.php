@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\base\Cart;
+use app\models\base\History;
 use app\models\ContactForm;
 use app\models\form\LoginForm;
 use app\models\form\ProfileForm;
@@ -262,7 +263,37 @@ class SiteController extends Controller
         ]);
     }
     public function actionDathang($id){
+        $cart = Yii::$app->user->identity->getCart();
+        $products = $cart[0][0]->id;
+        $quantity = $cart[0][1];
+
+        for ($i = 1; $i < sizeof($cart); $i++){
+            $item = $cart[$i];
+            $products = $products . '-' . $item[0]->id;
+            $quantity = $quantity . '-' . $item[1];
+        }
+        $order = new History();
+        $order->user_id = Yii::$app->user->identity->id;
+        $order->product_id = ''.$products;
+        $order->quantity = ''.$quantity;
+        $order->total = Yii::$app->user->identity->getTotalPrice();
+        $order->time = time();
+//        var_dump($order);
+//        var_dump($order->save());
+//        die();
+        $order->save();
         Cart::deleteAll(['user_id' => $id]);
         return $this->renderAjax('homepage');
     }
+
+    public function actionHistory(){
+//        $orders = History::find()->where(['user_id'=>Yii::$app->user->identity->id])->all();
+//        foreach ($orders as $order){
+//            $list = $order->getProductOrder();
+//            var_dump($list);
+//            die();
+//        }
+        return $this->renderAjax('history');
+    }
+
 }

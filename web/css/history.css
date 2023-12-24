@@ -1,0 +1,9 @@
+.new-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.total-order {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
