@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <!-- <div style="text-align: center;"> -->
 
-<p>
+<p class="button-update">
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -77,11 +77,6 @@ $this->params['breadcrumbs'][] = $this->title;
   min-height: 100vh;
 }
 
-.bg-image {
-  background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
-  /* background-size: cover;
-  background-position: center; */
-}
 
 .login-heading {
   font-weight: 300;
@@ -91,6 +86,10 @@ $this->params['breadcrumbs'][] = $this->title;
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
+}
+
+.button-update {
+    margin-left: 14%;
 }
 
 

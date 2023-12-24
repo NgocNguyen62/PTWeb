@@ -75,8 +75,10 @@ class CartController extends Controller
         $model->quantity = $quantity;
         if($model->save()){
             $product = Products::findOne(['id'=>$product_id]);
-            return $this->redirect(['site/products', 'id'=>$product_id]);
+//            return $this->redirect(['site/products', 'id'=>$product_id]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
+
     }
 
     /**

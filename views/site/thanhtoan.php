@@ -10,6 +10,7 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 $items = Yii::$app->user->identity->getCart();
+$user = \app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->id]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,25 +31,26 @@ $items = Yii::$app->user->identity->getCart();
         <form action="#" method="post">
             <div class="form-group">
                 <label for="full_name" required>Họ và Tên:</label>
-                <input type="text" id="full_name" name="full_name" placeholder="Họ và Tên của bạn" required>
+                <input type="text" id="full_name" name="full_name" placeholder="Họ và Tên của bạn" required value="<?= !empty($user->firstName) && !empty($user->lastName)? $user->firstName . ' ' . $user->lastName : '' ?>" >
             </div>
 
             <div class="form-group">
                 <label for="phone_number">Số Điện Thoại:</label>
-                <input type="tel" id="phone_number" name="phone_number" placeholder="Số điện thoại của bạn" required>
+                <input type="tel" id="phone_number" name="phone_number" placeholder='Số điện thoại của bạn' required value="<?= !empty($user->phoneNum) ? $user->phoneNum : '' ?>">
             </div>
 
             <div class="form-group">
                 <label for="email">Địa Chỉ Email:</label>
-                <input type="email" id="email" name="email" placeholder="Địa chỉ email của bạn" required>
+                <input type="email" id="email" name="email" placeholder="Địa chỉ email của bạn" required value="<?=!empty($user->email)? $user->email : '' ?>">
             </div>
 
             <div class="form-group">
                 <label for="address">Địa Chỉ:</label>
-                <textarea id="address" name="address" rows="4" placeholder="Địa chỉ cụ thể của bạns" required></textarea>
+                <input id="address" name="address" rows="4" placeholder="Địa chỉ cụ thể của bạn" required value="<?= !empty($user->address)? $user->address : ''?>"></input>
             </div>
-
-            <button type="submit"><strong>Đặt hàng</strong></button>
+            <a class="button-purchase" href="<?= Url::to(['site/dathang', 'id'=>Yii::$app->user->identity->id])?>">
+                <strong>Đặt hàng</strong>
+            </a>
         </form>
     </div>
 

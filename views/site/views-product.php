@@ -106,7 +106,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php foreach ($related as $item){ ?>
                     <div class="row-products">
                         <div class="col-products">
-                            <a class="width-a" href="<?= Url::to(['products/views-product', 'id' => $item->id]) ?>">
+                            <a class="width-a" href="<?= Url::to(['site/views-product', 'id' => $item->id]) ?>">
                                 <div class="image-container2">
                                     <div class="item2">
                                         <img class="img-products2" src="<?= $item->avatar ?>" alt="">
@@ -121,6 +121,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <div>
                                             <h6 class="price-discount2"><?= $item->price ?>đ</h6>
                                         </div>
+                                    </div>
+                                    <div class="hidden-button">
+                                        <?php
+                                        if(!Yii::$app->user->isGuest && !$item->inCart()){
+                                            echo Html::a(
+                                                Html::img('https://img.pikbest.com/png-images/shopping-cart-icon---vector-template---transparent-background_1794341.png!sw800', ['class' => 'icon-cart']),
+                                                ['cart/create', 'product_id' => $item->id, 'quantity'=>1]
+                                            );
+                                        } else{
+                                            echo Html::a(
+                                                Html::img('https://img.pikbest.com/png-images/shopping-cart-icon---vector-template---transparent-background_1794341.png!sw800', ['class' => 'icon-cart']),
+                                                ['cart/add', 'product_id' => $item->id, 'quantity'=>1]
+                                            );
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </a>

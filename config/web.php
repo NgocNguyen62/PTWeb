@@ -81,13 +81,13 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['login', 'logout', 'home', 'categories', 'category-details'],
+                'actions' => ['login', 'logout', 'home', 'categories', 'category-details', 'register'],
                 'roles' => ['?', '@'],
             ],
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['about', 'index','homepage','products',
+                'actions' => ['about','homepage','products',
                                 'cauchuyenthuonghieu','views-product',
                             'cuahang', 'tintuc', 'nhuongquyen'],
                 'roles' => ['?','@'],
@@ -120,9 +120,19 @@ $config = [
 //                'actions' => ['cart'],
                 'roles' => ['@'],
             ],
+            [
+                'allow' => true,
+                'controllers' => ['user-profile'],
+                'roles' => ['@'],
+            ],
+            [
+                'allow' => true,
+                'controllers' => ['categories'],
+                'roles' => ['@'],
+            ],
            [
                'allow' => true,
-               'roles' => ['?', '@'],
+               'roles' => ['admin'],
            ],
         ],
     ],

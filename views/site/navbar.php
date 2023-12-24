@@ -33,7 +33,7 @@ $cates = \app\models\base\Categories::find()->all();
                     $searchModel = new \app\models\search\ProductsSearch();
                     $form = ActiveForm::begin([
                         'method' => 'get',
-                        'action' => ['site/products'],
+                        'action' => ['site/all-products'],
                     ]); ?>
                     <?= $form->field($searchModel, 'name')->input('text',['placeholder'=>'Tìm kiếm', 'id'=>'searchText', 'onkeypress'=>'handle'])->label(false) ?>
                     <?php ActiveForm::end();

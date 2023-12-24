@@ -40,7 +40,7 @@ use yii\widgets\ActiveForm;
     <label class="control-label2" for="userform-username2">Giá gốc</label>
 
     <?= $form->field($model, 'original_price')->textInput() ?>
-    <label class="control-label2" for="userform-username2">Giá khuyến mãi</label>
+    <label class="control-label2" for="userform-username2">Giảm giá (%)</label>
 
     <?= $form->field($model, 'discount')->textInput() ?>
         <div class="form-group">

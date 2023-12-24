@@ -59,13 +59,13 @@
                     ],
 
                     [
-                        'label' => 'Quản lý hồ sơ',
+                        'label' => 'Quản lý người dùng',
                         // 'icon' => 'tachometer-alt',
                         // 'badge' => '<span class="right badge badge-info">2</span>',
                         'items' => [
-                            ['label' => 'Tạo mới hồ sơ', 'url' => ['user-profile/create']],
+                            ['label' => 'Tạo mới tài khoản', 'url' => ['user/create']],
 
-                            ['label' => 'Các hồ sơ được tạo', 'url' => ['user-profile/']],
+                            ['label' => 'Các tài khoản được tạo', 'url' => ['user/']],
 
                             // ['label' => 'Các sản phẩm được tạo', 'iconStyle' => 'far'],
                         ]

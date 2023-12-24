@@ -44,7 +44,9 @@ $products = $dataProvider->getModels();
                     <a class="width-a" href="<?= Url::to(['site/views-product', 'id' => $product->id]) ?>">
                         <div class="item">
                             <div class="image-container">
-                                <img src="<?= $product->avatar ?>" alt="" class="img-products">
+                                <div>
+                                    <img src="<?= $product->avatar ?>" alt="" class="img-products">
+                                </div>
                                 <div class="discount"><strong>-<?= $product->discount ?>%</strong></div>
                             </div>
                             <span class="name-line"><?= $product->name ?></span>

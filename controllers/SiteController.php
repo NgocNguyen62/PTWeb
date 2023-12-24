@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\base\Cart;
 use app\models\ContactForm;
 use app\models\form\LoginForm;
 use app\models\form\ProfileForm;
@@ -52,6 +53,7 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+                'layout'=>false,
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -250,5 +252,17 @@ class SiteController extends Controller
         return $this->renderAjax('footer');
     }
 
-    
+    public function actionAllProducts(){
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->renderAjax('all-products', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionDathang($id){
+        Cart::deleteAll(['user_id' => $id]);
+        return $this->renderAjax('homepage');
+    }
 }
