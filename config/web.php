@@ -111,7 +111,7 @@ $config = [
             [
                 'allow' => true,
                 'controllers' => ['site'],
-                'actions' => ['cart','user-profile','change-pass','thanhtoan', 'history', 'dathang'],
+                'actions' => ['cart','user-profile','change-pass','thanhtoan', 'history', 'dathang','danhsachcuahang','tuyendung'],
                 'roles' => ['@'],
             ],
             [

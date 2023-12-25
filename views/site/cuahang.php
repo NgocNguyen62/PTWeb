@@ -1,3 +1,7 @@
+<?php 
+use yii\helpers\Url;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -234,7 +238,7 @@
 
                 <div class="row">
                     <div class="col text-center">
-                        <a href="./danhsachcuahang.php" target="_blank" class="btn btn-dark">
+                        <a href="<?=Url::to(['site/danhsachcuahang']) ?>" target="_blank" class="btn btn-dark">
                             Xem tất cả cửa hàng </i>
                         </a>
                     </div>

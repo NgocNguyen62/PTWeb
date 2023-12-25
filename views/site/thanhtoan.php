@@ -16,7 +16,7 @@ $user = \app\models\UserProfile::findOne(['user_id'=>Yii::$app->user->identity->
 <html lang="en">
 
 <head>
-    <title>Sản phẩm</title>
+    <title>Thanh toán</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/cart.css" />

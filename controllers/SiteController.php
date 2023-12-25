@@ -296,4 +296,12 @@ class SiteController extends Controller
         return $this->renderAjax('history');
     }
 
+    public function actionDanhsachcuahang(){
+        return $this->renderAjax('danhsachcuahang');
+    }
+
+    public function actionTuyendung(){
+        return $this->renderAjax('tuyendung');
+    }
+
 }
