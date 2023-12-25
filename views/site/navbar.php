@@ -131,7 +131,7 @@ $cates = \app\models\base\Categories::find()->all();
                             <a class="nav-link" href="<?= Url::to(['site/products']) ?>">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Khuyến mãi</a>
+                            <a class="nav-link" href="<?= Url::to(['site/discount']) ?>">Khuyến mãi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo Url::to(['site/tintuc']); ?>">Tin tức</a>
