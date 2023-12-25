@@ -287,5 +287,8 @@ class SiteController extends Controller
     public function actionHistory(){
         return $this->renderAjax('history');
     }
+    public function actionDiscount(){
+        return $this->renderAjax('discount');
+    }
 
 }

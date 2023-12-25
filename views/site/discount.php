@@ -10,7 +10,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-$products = $dataProvider->getModels();
+$products = \app\models\Products::find()->where(['>', 'discount', 0])->orderBy(['discount' => SORT_DESC])->all();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +23,11 @@ $products = $dataProvider->getModels();
 </head>
 <body>
 <?php echo $this->render('navbar'); ?>
-<!--<img src="https://trungnguyenecoffee.com/wp-content/uploads/2021/12/0f35c6493b7ccc22956d-1400x556-1.jpg" alt="" style="width: 100%">-->
+<img src="https://trungnguyenecoffee.com/wp-content/uploads/2023/12/cover-page-1360x540px-1-1400x556.jpg" alt="" style="width: 100%">
 <div class="master-container">
-<!--    <div class="title-box">-->
-<!--        <span class="section-title-span"><strong>Cà phê đóng gói</strong></span>-->
-<!--    </div>-->
+    <!--    <div class="title-box">-->
+    <!--        <span class="section-title-span"><strong>Cà phê đóng gói</strong></span>-->
+    <!--    </div>-->
     <div class="container-products">
         <?php foreach ($products as $product) {?>
             <div class="row-products">
