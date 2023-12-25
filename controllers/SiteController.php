@@ -278,21 +278,13 @@ class SiteController extends Controller
         $order->quantity = ''.$quantity;
         $order->total = Yii::$app->user->identity->getTotalPrice();
         $order->time = time();
-//        var_dump($order);
-//        var_dump($order->save());
-//        die();
+
         $order->save();
         Cart::deleteAll(['user_id' => $id]);
         return $this->renderAjax('homepage');
     }
 
     public function actionHistory(){
-//        $orders = History::find()->where(['user_id'=>Yii::$app->user->identity->id])->all();
-//        foreach ($orders as $order){
-//            $list = $order->getProductOrder();
-//            var_dump($list);
-//            die();
-//        }
         return $this->renderAjax('history');
     }
 

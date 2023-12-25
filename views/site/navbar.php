@@ -92,7 +92,7 @@ $cates = \app\models\base\Categories::find()->all();
                                 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
                             </svg>
                                     <?php if(!Yii::$app->user->isGuest){ ?>
-                                        <div class="icon-cart">
+                                        <div class="icon-cart-number">
                                     <span><?= \app\models\base\Cart::find()->where(['user_id'=>Yii::$app->user->identity->id])->count() ?></span></div>
                                     <?php } ?>
                             </a>

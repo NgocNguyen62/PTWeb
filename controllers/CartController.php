@@ -142,6 +142,10 @@ class CartController extends Controller
     public function actionUpdateQuantity($id, $value){
         $model = Cart::findOne(['user_id'=>Yii::$app->user->id, 'product_id'=>$id]);
         $model->quantity += $value;
+        if($model->quantity <=0){
+            $model->delete();
+            return $this->redirect(['site/cart']);
+        }
         if($model->save()){
             return $this->redirect(['site/cart']);
         }

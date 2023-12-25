@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\base\Products;
+use app\models\base\Cart;
 use app\models\form\ProductForm;
 use app\models\search\ProductsSearch;
 use Yii;
@@ -172,7 +173,9 @@ class ProductsController extends Controller
         if (file_exists($folder)) {
             FileHelper::removeDirectory($folder);
         }
-        $model->delete();
+        if($model->delete()){
+            Cart::deleteAll(['product_id'=>$model->id]);
+        }
 
         return $this->redirect(['index']);
     }
